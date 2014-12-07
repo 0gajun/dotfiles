@@ -8,7 +8,7 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 #neobundleのインストール
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 #Solarizedのインストール
-git clone https://github.com/altercation/vim-colors-solarized.git ~/tmp
+git clone https://github.com/altercation/vim-colors-solarized.git ~/tmp/vim-colors-solarized/
 cp ~/tmp/vim-colors-solarized/* ~/.vim/
 
 
