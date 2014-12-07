@@ -17,6 +17,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'xolox/vim-session', {
             \ 'depends' : 'xolox/vim-misc',
           \ }
+NeoBundle 'kana/vim-submode'
 
 call neobundle#end()
 
@@ -81,3 +82,9 @@ else
   let g:session_autoload = 'no'
 endif
 unlet s:local_session_directory
+
+"submode
+call submode#enter_with('winsize', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('winsize', 'n', '', 's<', '<C-w><')
+call submode#map('winsize', 'n', '', '>', '<C-w>>')
+call submode#map('winsize', 'n', '', '<', '<C-w><')
