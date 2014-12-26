@@ -51,6 +51,10 @@ set incsearch
 set ignorecase
 set hlsearch
 
+"enable scrolling with mouse
+set mouse=a
+set ttymouse=xterm2
+
 "Keymap
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -58,6 +62,7 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 nnoremap sn gt
 nnoremap sp gT
+nnoremap uf :<C-u>Unite file<CR>
 
 "LightLine
 let g:lightline = {
