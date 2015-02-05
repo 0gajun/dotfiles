@@ -37,7 +37,6 @@ set background=dark
 set number
 set cursorline
 set laststatus=2
-set paste
 
 set ts=4
 set autoindent
@@ -63,6 +62,8 @@ nnoremap sh <C-w>h
 nnoremap sn gt
 nnoremap sp gT
 nnoremap uf :<C-u>Unite file<CR>
+nnoremap ub :<C-u>Unite buffer<CR>
+inoremap <silent> jk <ESC>
 
 "LightLine
 let g:lightline = {
