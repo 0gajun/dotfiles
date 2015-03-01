@@ -18,6 +18,7 @@ NeoBundle 'xolox/vim-session', {
             \ 'depends' : 'xolox/vim-misc',
           \ }
 NeoBundle 'kana/vim-submode'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 call neobundle#end()
 
@@ -38,13 +39,10 @@ set number
 set cursorline
 set laststatus=2
 
-set ts=4
+set ts=4 sw=4 et
 set autoindent
-set sw=4
-set cindent
-
-set list
-set listchars=tab:>-
+set cindent 
+set smarttab
 
 set incsearch
 set ignorecase
@@ -94,3 +92,8 @@ call submode#enter_with('winsize', 'n', '', 's>', '<C-w>>')
 call submode#enter_with('winsize', 'n', '', 's<', '<C-w><')
 call submode#map('winsize', 'n', '', '>', '<C-w>>')
 call submode#map('winsize', 'n', '', '<', '<C-w><')
+
+"vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
+let g:indent_guides_start_level=2
