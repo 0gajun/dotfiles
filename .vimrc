@@ -19,6 +19,7 @@ NeoBundle 'xolox/vim-session', {
           \ }
 NeoBundle 'kana/vim-submode'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'scrooloose/syntastic.git'
 
 call neobundle#end()
 
@@ -97,3 +98,7 @@ call submode#map('winsize', 'n', '', '<', '<C-w><')
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 let g:indent_guides_start_level=2
+
+"syntastic
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['c', 'python'] }
