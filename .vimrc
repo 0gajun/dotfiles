@@ -60,8 +60,8 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 nnoremap sn gt
 nnoremap sp gT
-nnoremap uf :<C-u>Unite file<CR>
-nnoremap ub :<C-u>Unite buffer<CR>
+nnoremap suf :<C-u>Unite file<CR>
+nnoremap sub :<C-u>Unite buffer<CR>
 inoremap <silent> jk <ESC>
 
 "LightLine
