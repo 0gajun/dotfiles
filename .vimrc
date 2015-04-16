@@ -64,6 +64,9 @@ nnoremap suf :<C-u>Unite file<CR>
 nnoremap sub :<C-u>Unite buffer<CR>
 inoremap <silent> jk <ESC>
 
+" For vimgrep
+autocmd QuickFixCmdPost *grep* cwindow
+
 "LightLine
 let g:lightline = {
 	\	'colorscheme': 'wombat',
