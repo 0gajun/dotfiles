@@ -20,6 +20,7 @@ NeoBundle 'xolox/vim-session', {
 NeoBundle 'kana/vim-submode'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'scrooloose/syntastic.git'
+NeoBundle 'derekwyatt/vim-scala'
 
 call neobundle#end()
 
