@@ -22,6 +22,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'powerline/powerline'
 
 call neobundle#end()
 
@@ -70,9 +72,31 @@ inoremap <silent> jk <ESC>
 autocmd QuickFixCmdPost *grep* cwindow
 
 "LightLine
+set noshowmode
 let g:lightline = {
 	\	'colorscheme': 'wombat',
-	\}
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'fugitive', 'filename'] ]
+  \ },
+  \ 'component_function': {
+  \   'fugitive': 'MyFugitive'
+  \ },
+  \ 'separator': {
+  \     'left': "\ue0b0", 'right': "\ue0b2"
+  \ },
+  \ 'subseparator':{
+  \     'left': "\ue0b1", 'right': "\ue0b3"
+  \ }
+  \}
+
+function! MyFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? "\ue0a0 "._ : ''
+  endif
+  return ''
+endfunction
 
 "vim-session
 " 現在のディレクトリ直下の .vimsessions/ を取得 
