@@ -24,6 +24,8 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'powerline/powerline'
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
 
@@ -37,6 +39,7 @@ NeoBundleCheck
 syntax on
 syntax enable
 colorscheme solarized
+au BufRead,BufNewFile *.md set filetype=markdown
 
 set background=dark
 
@@ -44,7 +47,7 @@ set number
 set cursorline
 set laststatus=2
 
-set ts=4 sw=4 et
+set ts=2 sw=2 et
 set autoindent
 set cindent 
 set smarttab
