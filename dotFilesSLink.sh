@@ -1,9 +1,14 @@
 #!/bin/sh
+TMP_DIR='~/tmp-dotfiles'
+DOTFILES_DIR=$(cd $(dirname $0);pwd)
+
 #作業ディレクトリ作成
-mkdir ~/tmp-dotfiles
+mkdir $TMP_DIR
 
 #シンボリックリンク作成
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+
 #For vim
 #neobundleのインストール
 if [ ! -e ~/.vim/bundle ] ; then
@@ -11,8 +16,8 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 fi
 #Solarizedのインストール
 if [ ! -e ~/.vim/colors/solarized/vim ] ; then
-git clone https://github.com/altercation/vim-colors-solarized.git ~/tmp-dotfiles/vim-colors-solarized/
-cp -r ~/tmp-dotfiles/vim-colors-solarized/* ~/.vim/
+git clone https://github.com/altercation/vim-colors-solarized.git $TMP_DIR/vim-colors-solarized/
+cp -r $TMP_DIR/vim-colors-solarized/* ~/.vim/
 fi
 
 #For zsh
@@ -20,4 +25,4 @@ fi
 curl -L http://install.ohmyz.sh | sh
 
 #作業ディレクトリの削除
-rm -rf ~/tmp-dotfiles
+rm -rf $TMP_DIR
