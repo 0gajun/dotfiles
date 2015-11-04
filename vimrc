@@ -10,7 +10,15 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundleFetch 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tomtom/tcomment_vim'
@@ -26,6 +34,9 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'powerline/powerline'
 NeoBundle 'kana/vim-filetype-haskell'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Chiel92/vim-autoformat'
+NeoBundle 'Glench/Vim-Jinja2-Syntax'
 
 call neobundle#end()
 

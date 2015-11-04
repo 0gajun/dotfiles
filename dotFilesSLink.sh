@@ -1,5 +1,5 @@
 #!/bin/sh
-TMP_DIR='~/tmp-dotfiles'
+TMP_DIR=~/tmp-dotfiles
 DOTFILES_DIR=$(cd $(dirname $0);pwd)
 
 #作業ディレクトリ作成
