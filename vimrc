@@ -144,4 +144,4 @@ let g:indent_guides_start_level=2
 
 "syntastic
 let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['c', 'python'] }
+            \ 'active_filetypes': ['c', 'python', 'ruby'] }
