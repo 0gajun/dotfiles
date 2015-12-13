@@ -27,6 +27,12 @@ bindkey 'jk' vi-cmd-mode
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
+# history search by inputted cmd name
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+bindkey "^[OA" history-search-backward
+bindkey "^[OB" history-search-forward
+
 # Enable using commnd stack by pressing C-q
 show_buffer_stack() {
     POSTDISPLAY="
