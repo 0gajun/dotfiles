@@ -23,6 +23,10 @@ bindkey -v
 # Entering to vim-cmd-mode by pressing 'jk'
 bindkey 'jk' vi-cmd-mode
 
+# reset vi keybind for specific keys.
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+
 # Enable using commnd stack by pressing C-q
 show_buffer_stack() {
     POSTDISPLAY="
