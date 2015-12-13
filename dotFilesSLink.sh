@@ -8,6 +8,7 @@ mkdir $TMP_DIR
 #シンボリックリンク作成
 ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
 
 #For vim
 #neobundleのインストール
