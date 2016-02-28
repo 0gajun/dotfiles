@@ -25,5 +25,8 @@ fi
 #oh-my-zshのインストール
 curl -L http://install.ohmyz.sh | sh
 
+# install zsh-theme
+cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
+
 #作業ディレクトリの削除
 rm -rf $TMP_DIR
