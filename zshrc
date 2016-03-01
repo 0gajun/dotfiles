@@ -78,3 +78,10 @@ function genymotion_peco() {
      $player --vm-name "$name" &
   fi
 }
+
+function ssh-host-search() {
+  cat ~/.ssh/config | grep "^Host" | awk '{print $2;}' | peco 
+}
+alias sshs='ssh $(ssh-host-search)'
+
+zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
