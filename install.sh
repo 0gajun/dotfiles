@@ -50,3 +50,5 @@ cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
 
 # remove working directory
 rm -rf $TMP_DIR
+
+echo "Finished!"
