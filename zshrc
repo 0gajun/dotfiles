@@ -55,6 +55,11 @@ setopt noflowcontrol
 setopt hist_ignore_all_dups
 
 ####################
+# Global Alias
+alias -g L='| less'
+alias -g G='| grep'
+
+####################
 # Functions
 
 # Interactive selection for git changed files
