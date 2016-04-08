@@ -58,6 +58,7 @@ setopt hist_ignore_all_dups
 # Global Alias
 alias -g L='| less'
 alias -g G='| grep'
+alias -g H='| head'
 
 ####################
 # Functions
