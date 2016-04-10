@@ -60,6 +60,10 @@ alias -g L='| less'
 alias -g G='| grep'
 alias -g H='| head'
 
+###################
+# Alias
+alias rm='rm -i'
+
 ####################
 # Functions
 
