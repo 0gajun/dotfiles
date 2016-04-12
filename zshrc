@@ -63,6 +63,7 @@ alias -g H='| head'
 ###################
 # Alias
 alias rm='rm -i'
+alias mkdir='mkdir -p'
 
 ####################
 # Functions
