@@ -8,11 +8,6 @@ set -e
 # create working directory
 mkdir $TMP_DIR
 
-# create symlinks
-ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
-ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
-ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
-
 # install xmonad's configuration
 if [ `which xmonad` ] ; then
   if [ ! -e ~/.xmonad ] ; then
@@ -47,6 +42,11 @@ fi
 
 # install zsh-theme
 cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
+
+# create symlinks
+ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
 
 # remove working directory
 rm -rf $TMP_DIR
