@@ -80,6 +80,7 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap suf :<C-u>Unite file<CR>
 nnoremap sub :<C-u>Unite buffer<CR>
+nnoremap <silent> <C-p> :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 inoremap <silent> jk <ESC>
 
 " For vimgrep
@@ -110,6 +111,14 @@ function! MyFugitive()
     return strlen(_) ? "\ue0a0 "._ : ''
   endif
   return ''
+endfunction
+
+function! DispatchUniteFileRecAsyncOrGit()
+  if isdirectory(getcwd()."/.git")
+    Unite file_rec/git
+  else
+    Unite file_rec/async
+  endif
 endfunction
 
 "vim-session
