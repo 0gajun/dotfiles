@@ -37,6 +37,8 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundle 'Glench/Vim-Jinja2-Syntax'
+NeoBundle 'rking/ag.vim'
+NeoBundle "Shougo/neocomplete.vim"
 
 call neobundle#end()
 
@@ -156,3 +158,15 @@ let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'active_filetypes': ['c', 'python', 'ruby'] }
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--ignore=E111"
+
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_ignore_case = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_enable_camel_case_completion = 0
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns._ = '\h\w*'
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
