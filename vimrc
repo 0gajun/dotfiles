@@ -51,8 +51,13 @@ NeoBundleCheck
 
 syntax on
 syntax enable
-colorscheme solarized
 au BufRead,BufNewFile *.md set filetype=markdown
+
+""""""""""
+" ColorSchemeSetting
+if has('mac')
+  colorscheme solarized
+endif
 
 set background=dark
 
