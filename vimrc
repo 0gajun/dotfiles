@@ -57,6 +57,8 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " ColorSchemeSetting
 if has('mac')
   colorscheme solarized
+else
+  colorscheme molokai
 endif
 
 set background=dark

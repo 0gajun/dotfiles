@@ -32,6 +32,14 @@ else
   echo "Solarized is already installed"
 fi
 
+# install molokai color scheme for vim
+if [ ! -e ~/.vim/colors/molokai.vim ] ; then
+  git clone https://github.com/Oga-Jun/molokai.git $TMP_DIR/molokai/
+  cp $TMP_DIR/molokai/colors/molokai.vim ~/.vim/colors/molokai.vim
+else
+  echo "Molokai color scheme is already installed"
+fi
+
 #For zsh
 # install oh-my-zsh
 if [ ! -e ~/.oh-my-zsh ] ; then
