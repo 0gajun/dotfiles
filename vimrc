@@ -38,7 +38,8 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Chiel92/vim-autoformat'
 NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'rking/ag.vim'
-NeoBundle "Shougo/neocomplete.vim"
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'davidhalter/jedi-vim'
 
 call neobundle#end()
 
@@ -177,3 +178,6 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"jedi-vim
+autocmd FileType python setlocal completeopt-=preview
