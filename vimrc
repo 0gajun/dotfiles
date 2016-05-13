@@ -91,6 +91,7 @@ nnoremap sp gT
 nnoremap suf :<C-u>Unite file<CR>
 nnoremap sub :<C-u>Unite buffer<CR>
 nnoremap <silent> <C-p> :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+nnoremap <C-]> g<C-]>
 inoremap <silent> jk <ESC>
 
 " For vimgrep
