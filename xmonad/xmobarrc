@@ -40,5 +40,5 @@ Config { font = "xft:TakaoPGothic-9:Bold"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{≫%multicpu%  ≫%memory%  ≫%wlan0%  ≫%battery%  <fc=#c7a273>%date%</fc> "
+       , template = " %StdinReader% }{>>%multicpu%  >>%memory%  >>%wlan0%  >>%battery%  <fc=#c7a273>%date%</fc> "
        }

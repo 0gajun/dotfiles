@@ -56,11 +56,11 @@ myLogHook h = dynamicLogWithPP $ statusPP { ppOutput = hPutStrLn h }
 myStatusBar = "xmobar $HOME/.xmonad/xmobarrc"
 
 statusPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,t]
-                    , ppCurrent         = xmobarColor colorGreen colorNormalbg . \s -> "●"
-                    , ppUrgent          = xmobarColor colorfg    colorNormalbg . \s -> "●"
-                    , ppVisible         = xmobarColor colorfg    colorNormalbg . \s -> "●"
-                    , ppHidden          = xmobarColor colorfg    colorNormalbg . \s -> "●"
-                    , ppHiddenNoWindows = xmobarColor colorfg    colorNormalbg . \s -> "◯"
+                    , ppCurrent         = xmobarColor colorGreen colorNormalbg . \s -> "X"
+                    , ppUrgent          = xmobarColor colorfg    colorNormalbg . \s -> "O"
+                    , ppVisible         = xmobarColor colorfg    colorNormalbg . \s -> "O"
+                    , ppHidden          = xmobarColor colorfg    colorNormalbg . \s -> "O"
+                    , ppHiddenNoWindows = xmobarColor colorfg    colorNormalbg . \s -> "O"
                     , ppTitle           = xmobarColor colorGreen colorNormalbg
                     , ppOutput          = putStrLn
                     , ppWsSep           = " "
