@@ -16,6 +16,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Layout.ToggleLayouts
 
+import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.SpawnOnce
@@ -43,8 +44,23 @@ main = do
     , terminal = "urxvt"
     , normalBorderColor = colorGray 
     , focusedBorderColor = colorGreen
+    , manageHook = manageHookFloat
     , logHook = myLogHook statusBar
-    , layoutHook = toggleLayouts (noBorders Full) $ avoidStruts $ myLayout }
+    , layoutHook = toggleLayouts (noBorders Full) $ avoidStruts $ myLayout
+    }
+
+
+    `removeKeysP`
+    [
+      "M-S-<Return>"
+    ]
+
+
+    `additionalKeysP`
+    [
+      ("M-<Return>", spawn "urxvt")
+    , ("M-S-<Return>", spawn "~/bin/urxvt_float")
+    ]
 
 
 myLayout = (spacing 18 $ ResizableTall 1 (3/100) (3/5) [])
@@ -66,3 +82,7 @@ statusPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,t]
                     , ppWsSep           = " "
                     , ppSep             = "  "
                     }
+
+manageHookFloat = composeAll
+  [ title =? "urxvt_float"    --> doCenterFloat
+  ]
