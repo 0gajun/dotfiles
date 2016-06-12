@@ -56,6 +56,11 @@ ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
 
+if [ ! -e ~/.config ] ; then
+  mkdir ~/.config
+fi
+ln -sf $DOTFILES_DIR/peco ~/.config/peco
+
 # remove working directory
 rm -rf $TMP_DIR
 
