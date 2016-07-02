@@ -40,6 +40,8 @@ NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'hdima/python-syntax'
+NeoBundle 'hynek/vim-python-pep8-indent'
 
 call neobundle#end()
 
