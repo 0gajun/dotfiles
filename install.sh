@@ -43,7 +43,7 @@ fi
 #For zsh
 # install oh-my-zsh
 if [ ! -e ~/.oh-my-zsh ] ; then
-  curl -L http://install.ohmyz.sh | sh
+  curl -L http://install.ohmyz.sh | sh || true
 else
   echo "oh-my-zsh is already installed"
 fi
