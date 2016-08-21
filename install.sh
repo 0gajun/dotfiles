@@ -5,6 +5,14 @@ DOTFILES_DIR=$(cd $(dirname $0);pwd)
 # when error occurs, stop task
 set -e
 
+# Detect platform
+platform='unknown'
+unamestr=`uname`
+case "$unamestr" in
+  Darwin*) platform='OSX' ;;
+  Linux*) platform='linux' ;;
+esac
+
 # create working directory
 mkdir $TMP_DIR
 
@@ -41,17 +49,30 @@ else
 fi
 
 #For zsh
-# install oh-my-zsh
+echo 'install oh-my-zsh'
 if [ ! -e ~/.oh-my-zsh ] ; then
   curl -L http://install.ohmyz.sh | sh || true
 else
   echo "oh-my-zsh is already installed"
 fi
 
-# install zsh-theme
+# PATH problem workaround for OSX El Capitan.
+if [ ! -e ~/.zshenv ] ; then
+  touch ~/.zshenv
+fi
+
+if [ $platform = 'OSX' ] ; then
+  # Checking whether zshenv is patched or not
+  matched_line=`grep -c no_global_rcs ~/.zshenv` || true
+  if [ $matched_line -eq 0 ] ; then
+    cat ./osx/workaround_loading_path_in_el_capitan >> ~/.zshenv
+  fi
+fi
+
+echo 'install zsh-theme'
 cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
 
-# create symlinks
+echo 'create symlinks'
 ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
@@ -61,7 +82,7 @@ if [ ! -e ~/.config ] ; then
 fi
 ln -sf $DOTFILES_DIR/peco ~/.config/peco
 
-# remove working directory
+echo 'remove working directory'
 rm -rf $TMP_DIR
 
 echo "Finished!"

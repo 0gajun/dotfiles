@@ -1,0 +1,6 @@
+###################
+# Don't use global settings
+# (Workaround For OSX Elcapitan
+setopt no_global_rcs
+
+export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin
