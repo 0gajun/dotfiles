@@ -65,7 +65,9 @@ if [ $platform = 'OSX' ] ; then
   # Checking whether zshenv is patched or not
   matched_line=`grep -c no_global_rcs ~/.zshenv` || true
   if [ $matched_line -eq 0 ] ; then
-    cat ./osx/workaround_loading_path_in_el_capitan >> ~/.zshenv
+    TMP_ZSHENV=$TMP_DIR/zshenv
+    cat ./osx/workaround_loading_path_in_el_capitan ~/.zshenv > $TMP_ZSHENV
+    mv $TMP_ZSHENV ~/.zshenv
   fi
 fi
 
