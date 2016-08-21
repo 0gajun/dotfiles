@@ -96,6 +96,8 @@ nnoremap <silent> <C-p> :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 nnoremap <C-]> g<C-]>
 inoremap <silent> jk <ESC>
 
+set backspace=indent,eol,start
+
 " For vimgrep
 autocmd QuickFixCmdPost *grep* cwindow
 
