@@ -74,6 +74,14 @@ fi
 echo 'install zsh-theme'
 cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
 
+echo 'install anyenv'
+if [ ! -e ~/.anyenv ] ; then
+  git clone https://github.com/riywo/anyenv ~/.anyenv
+  echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.zshenv
+  echo 'eval "$(anyenv init -)"' >> ~/.zshenv
+  echo "*** Please restart your shell because of anyenv's installation.***"
+fi
+
 echo 'create symlinks'
 ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
