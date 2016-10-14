@@ -78,6 +78,8 @@ set smarttab
 set incsearch
 set ignorecase
 set hlsearch
+set list
+set listchars=tab:▸\ ,trail:-,eol:¬
 
 "enable scrolling with mouse
 set mouse=a
