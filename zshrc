@@ -64,6 +64,7 @@ alias -g H='| head'
 # Alias
 alias rm='rm -i'
 alias mkdir='mkdir -p'
+alias g='cd $(ghq root)/$(ghq list | peco)'
 
 ####################
 # Functions
