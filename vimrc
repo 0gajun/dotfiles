@@ -42,6 +42,7 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 call neobundle#end()
 
