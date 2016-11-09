@@ -13,6 +13,11 @@ case "$unamestr" in
   Linux*) platform='linux' ;;
 esac
 
+if [ ! `which zsh` ] ; then
+  echo "Please install zsh before this installation"
+  exit 1
+fi
+
 # create working directory
 mkdir $TMP_DIR
 
