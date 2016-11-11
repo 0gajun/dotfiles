@@ -171,7 +171,7 @@ let g:indent_guides_start_level=2
 
 "syntastic
 let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['c', 'python', 'ruby'] }
+            \ 'active_filetypes': ['c', 'cpp', 'python', 'ruby'] }
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--ignore=E111"
 
