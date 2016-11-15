@@ -30,11 +30,12 @@ if [ `which xmonad` ] ; then
 fi
 
 # For vim
-# install neobundle
-if [ ! -e ~/.vim/bundle ] ; then
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+# install vim-plug
+if [ ! -e ~/.vim/autoload/plug.vim ] ; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
-  echo "neobundle is already installed"
+  echo "vim-plug is already installed"
 fi
 
 # install Solarized color scheme for vim

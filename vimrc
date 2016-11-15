@@ -1,60 +1,42 @@
 """"""""""""""""""""""""
-""Plugins(NeoBundle)
+""Plugins(vim-plug)
 """"""""""""""""""""""""
-filetype off
-if has('vim_starting')
-	set nocompatible
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+call plug#begin('~/.vim/plugged')
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/unite.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
+Plug 'kana/vim-submode'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/vimshell'
+Plug 'thinca/vim-quickrun'
+Plug 'Shougo/neocomplete.vim'
+Plug 'rking/ag.vim'
+Plug 'powerline/powerline'
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'xolox/vim-session', {
-            \ 'depends' : 'xolox/vim-misc',
-          \ }
-NeoBundle 'kana/vim-submode'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'scrooloose/syntastic.git'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'powerline/powerline'
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Chiel92/vim-autoformat'
-NeoBundle 'Glench/Vim-Jinja2-Syntax'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'hdima/python-syntax'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
+" Language specific plugins
+"" Python
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+"" C++
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+"" Scala
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+"" Jinja
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
+"" Haskell
+Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
+"" cofee-script
+Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
 
-call neobundle#end()
-
-filetype plugin indent on
-NeoBundleCheck
-
-""""""""""
-""Plugins(NeoBundle end)
-""""""""""
+call plug#end()
 
 syntax on
-syntax enable
 au BufRead,BufNewFile *.md set filetype=markdown
 
 """"""""""
