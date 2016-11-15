@@ -31,6 +31,8 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
 "" Haskell
 Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
+"" Go
+Plug 'fatih/vim-go', { 'for': 'go' }
 "" cofee-script
 Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
 
