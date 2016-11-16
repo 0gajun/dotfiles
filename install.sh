@@ -29,6 +29,14 @@ if [ `which xmonad` ] ; then
   ln -sf $DOTFILES_DIR/xmonad/* ~/.xmonad/
 fi
 
+# For tmux
+# Install tmux plugin manager
+if [ ! -e ~/.tmux/plugins/tpm ] ; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  echo "tpm is already installed"
+fi
+
 # For vim
 # install vim-plug
 if [ ! -e ~/.vim/autoload/plug.vim ] ; then
