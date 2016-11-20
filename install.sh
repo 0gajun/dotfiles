@@ -101,6 +101,8 @@ echo 'create symlinks'
 ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
+ln -sf $DOTFILES_DIR/vim/ftplugin ~/.vim/ftplugin
+ln -sf $DOTFILES_DIR/vim/filetype.vim ~/.vim/filetype.vim
 
 if [ ! -e ~/.config ] ; then
   mkdir ~/.config

@@ -40,7 +40,6 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
 call plug#end()
 
 syntax on
-au BufRead,BufNewFile *.md set filetype=markdown
 
 """"""""""
 " ColorSchemeSetting
