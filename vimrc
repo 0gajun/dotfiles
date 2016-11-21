@@ -33,7 +33,7 @@ Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
 "" Haskell
 Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
 "" Go
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
 "" cofee-script
 Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
 
@@ -173,3 +173,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "jedi-vim
 autocmd FileType python setlocal completeopt-=preview
+
+"vim-go
+let g:go_fmt_command = "goimports"
