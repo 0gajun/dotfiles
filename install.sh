@@ -94,7 +94,7 @@ if [ ! -e ~/.anyenv ] ; then
   git clone https://github.com/riywo/anyenv ~/.anyenv
   echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.zshenv
   echo 'eval "$(anyenv init -)"' >> ~/.zshenv
-  echo "*** Please restart your shell because of anyenv's installation.***"
+  echo "*** Please restart your shell due to anyenv's installation.***"
 fi
 
 echo 'create symlinks'
