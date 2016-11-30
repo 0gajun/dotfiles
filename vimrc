@@ -155,9 +155,10 @@ let g:indent_guides_start_level=2
 
 "syntastic
 let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['c', 'python', 'ruby'] }
+            \ 'active_filetypes': ['c', 'ocaml', 'python', 'ruby'] }
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--ignore=E111"
+let g:syntastic_ocaml_checkers = ['merlin']
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
@@ -171,8 +172,19 @@ endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-"jedi-vim
+" jedi-vim
 autocmd FileType python setlocal completeopt-=preview
 
 "vim-go
 let g:go_fmt_command = "goimports"
+
+" merlin (For OCaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.ocaml = '[^. *\t]\.\w*\|\h\w*|#'
+
+" ocp-indent (For OCaml
+execute 'set rtp^=' . g:opamshare . '/ocp-indent/vim'
