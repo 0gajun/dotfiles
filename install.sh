@@ -109,7 +109,9 @@ fi
 if [ ! -e ~/.config ] ; then
   mkdir ~/.config
 fi
-ln -sf $DOTFILES_DIR/peco ~/.config/peco
+if [ ! -e ~/.config/peco ] ; then
+  ln -sf $DOTFILES_DIR/peco ~/.config/peco
+fi
 
 echo 'remove working directory'
 rm -rf $TMP_DIR
