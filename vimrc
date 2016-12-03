@@ -36,6 +36,8 @@ Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
 Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
 "" cofee-script
 Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
+"" OCaml
+Plug 'cohama/the-ocamlspot.vim', { 'for': 'ocaml' }
 
 call plug#end()
 
