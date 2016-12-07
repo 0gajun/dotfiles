@@ -36,6 +36,8 @@ Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
 Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
 "" cofee-script
 Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
+"" Terraform
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 
 call plug#end()
 
