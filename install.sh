@@ -48,6 +48,7 @@ fi
 
 # install Solarized color scheme for vim
 if [ ! -e ~/.vim/colors/solarized.vim ] ; then
+  echo "Install solalized color scheme"
   git clone https://github.com/altercation/vim-colors-solarized.git $TMP_DIR/vim-colors-solarized/
   cp -r $TMP_DIR/vim-colors-solarized/* ~/.vim/
 else
@@ -56,6 +57,7 @@ fi
 
 # install molokai color scheme for vim
 if [ ! -e ~/.vim/colors/molokai.vim ] ; then
+  echo "Install molokai color scheme"
   git clone https://github.com/Oga-Jun/molokai.git $TMP_DIR/molokai/
   cp $TMP_DIR/molokai/colors/molokai.vim ~/.vim/colors/molokai.vim
 else
@@ -79,6 +81,7 @@ if [ $platform = 'OSX' ] ; then
   # Checking whether zshenv is patched or not
   matched_line=`grep -c no_global_rcs ~/.zshenv` || true
   if [ $matched_line -eq 0 ] ; then
+    echo "Patching zsh workaround for OSX El Capitan"
     TMP_ZSHENV=$TMP_DIR/zshenv
     cat ./osx/workaround_loading_path_in_el_capitan ~/.zshenv > $TMP_ZSHENV
     mv $TMP_ZSHENV ~/.zshenv
