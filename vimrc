@@ -1,7 +1,6 @@
 """"""""""""""""""""""""
 ""Plugins(vim-plug)
 """"""""""""""""""""""""
-let g:plug_timeout = 1000
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
