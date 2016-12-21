@@ -17,6 +17,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'Shougo/neocomplete.vim'
 Plug 'rking/ag.vim'
 Plug 'powerline/powerline'
+Plug 'editorconfig/editorconfig-vim'
 
 " Language specific plugins
 "" Python
