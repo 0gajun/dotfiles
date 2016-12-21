@@ -38,6 +38,9 @@ Plug 'fatih/vim-go', { 'for': 'go', 'tag': '*' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
 "" Terraform
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+"" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
 call plug#end()
 
