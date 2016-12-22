@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	excludesfile = /Users/Junya/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [user]
 	name = oga
 	email = oga.ivc.s27@gmail.com
