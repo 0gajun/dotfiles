@@ -18,6 +18,7 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'rking/ag.vim'
 Plug 'powerline/powerline'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Language specific plugins
 "" Python
