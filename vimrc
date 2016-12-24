@@ -194,3 +194,8 @@ let g:neocomplete#sources#omni#input_patterns.ocaml = '[^. *\t]\.\w*\|\h\w*|#'
 
 " ocp-indent (For OCaml
 execute 'set rtp^=' . g:opamshare . '/ocp-indent/vim'
+
+" racer-rust/vim-racer
+let g:racer_cmd = "~/.cargo/bin/racer"
+"" And please set $RUST_SRC_PATH as environment variable
+let g:racer_experimental_completer = 1
