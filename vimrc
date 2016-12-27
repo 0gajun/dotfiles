@@ -161,10 +161,11 @@ let g:indent_guides_start_level=2
 
 "syntastic
 let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['c', 'ocaml', 'python', 'ruby'] }
+            \ 'active_filetypes': ['c', 'rust', 'ocaml', 'python', 'ruby'] }
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--ignore=E111"
 let g:syntastic_ocaml_checkers = ['merlin']
+let g:syntastic_rust_checkers = ['rustc']
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
