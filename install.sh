@@ -5,7 +5,7 @@ DOTFILES_DIR=$(cd $(dirname $0);pwd)
 # when error occurs, stop task
 set -e
 
-# Detect platform
+## Detect platform
 platform='unknown'
 unamestr=`uname`
 case "$unamestr" in
@@ -21,7 +21,8 @@ fi
 # create working directory
 mkdir $TMP_DIR
 
-# install xmonad's configuration
+#############################
+## For Xmonad
 if [ `which xmonad` ] ; then
   if [ ! -e ~/.xmonad ] ; then
     mkdir ~/.xmonad
@@ -29,7 +30,8 @@ if [ `which xmonad` ] ; then
   ln -sf $DOTFILES_DIR/xmonad/* ~/.xmonad/
 fi
 
-# For tmux
+#############################
+## For tmux
 # Install tmux plugin manager
 if [ ! -e ~/.tmux/plugins/tpm ] ; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -37,34 +39,54 @@ else
   echo "tpm is already installed"
 fi
 
-# For vim
-# install vim-plug
-if [ ! -e ~/.vim/autoload/plug.vim ] ; then
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-else
-  echo "vim-plug is already installed"
-fi
 
-# install Solarized color scheme for vim
-if [ ! -e ~/.vim/colors/solarized.vim ] ; then
-  echo "Install solalized color scheme"
-  git clone https://github.com/altercation/vim-colors-solarized.git $TMP_DIR/vim-colors-solarized/
-  cp -r $TMP_DIR/vim-colors-solarized/* ~/.vim/
-else
-  echo "Solarized is already installed"
-fi
+#############################
+## For vim
+VIM_ROOT=$HOME/.vim/
+NVIM_ROOT=$HOME/.config/nvim/
 
-# install molokai color scheme for vim
-if [ ! -e ~/.vim/colors/molokai.vim ] ; then
-  echo "Install molokai color scheme"
-  git clone https://github.com/Oga-Jun/molokai.git $TMP_DIR/molokai/
-  cp $TMP_DIR/molokai/colors/molokai.vim ~/.vim/colors/molokai.vim
-else
-  echo "Molokai color scheme is already installed"
-fi
+ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT/init.vim
 
-#For zsh
+for root in "$VIM_ROOT" "$NVIM_ROOT"
+do
+  echo "Installing vim configuration into $root"
+
+  ln -sf $DOTFILES_DIR/vim/filetype.vim $root/filetype.vim
+  if [ ! -e $root/ftplugin ]; then
+    ln -sf $DOTFILES_DIR/vim/ftplugin $root/ftplugin
+  fi
+
+  # install vim-plug
+  if [ ! -e $root/autoload/plug.vim ] ; then
+    curl -fLo $root/autoload/plug.vim --create-dirs \
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  else
+    echo "vim-plug is already installed"
+  fi
+
+  # install Solarized color scheme for vim
+  if [ ! -e $root/colors/solarized.vim ] ; then
+    echo "Install solalized color scheme"
+    git clone https://github.com/altercation/vim-colors-solarized.git $TMP_DIR/vim-colors-solarized/
+    cp -r $TMP_DIR/vim-colors-solarized/* $root
+  else
+    echo "Solarized is already installed"
+  fi
+
+  # install molokai color scheme for vim
+  if [ ! -e $root/colors/molokai.vim ] ; then
+    echo "Install molokai color scheme"
+    git clone https://github.com/Oga-Jun/molokai.git $TMP_DIR/molokai/
+    cp $TMP_DIR/molokai/colors/molokai.vim $root/colors/molokai.vim
+  else
+    echo "Molokai color scheme is already installed"
+  fi
+
+done
+
+#############################
+## For zsh
 echo 'install oh-my-zsh'
 if [ ! -e ~/.oh-my-zsh ] ; then
   curl -L http://install.ohmyz.sh | sh || true
@@ -72,7 +94,12 @@ else
   echo "oh-my-zsh is already installed"
 fi
 
-# PATH problem workaround for OSX El Capitan.
+echo 'install zsh-theme'
+cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
+
+
+#############################
+## PATH problem workaround for OSX El Capitan.
 if [ ! -e ~/.zshenv ] ; then
   touch ~/.zshenv
 fi
@@ -89,9 +116,9 @@ if [ $platform = 'OSX' ] ; then
   fi
 fi
 
-echo 'install zsh-theme'
-cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
 
+#############################
+## anyenv
 echo 'install anyenv'
 if [ ! -e ~/.anyenv ] ; then
   git clone https://github.com/riywo/anyenv ~/.anyenv
@@ -101,12 +128,18 @@ if [ ! -e ~/.anyenv ] ; then
 fi
 
 echo 'create symlinks'
-ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
-ln -sf $DOTFILES_DIR/vim/filetype.vim ~/.vim/filetype.vim
-if [ ! -e $DOTFILES_DIR/vim/ftplugin ]; then
-  ln -sf $DOTFILES_DIR/vim/ftplugin ~/.vim/ftplugin
+# vim
+#neo vim
+NVIM_ROOT_DIR=$HOME/.config/nvim
+if [ ! -e $NVIM_ROOT_DIR ]; then
+  mkdir $NVIM_ROOT_DIR
+fi
+ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT_DIR/init.vim
+ln -sf $DOTFILES_DIR/vim/filetype.vim $NVIM_ROOT_DIR/filetype.vim
+if [ ! -e $NVIM_ROOT_DIR/ftplugin ]; then
+  ln -sf $DOTFILES_DIR/vim/ftplugin $NVIM_ROOT_DIR/ftplugin
 fi
 
 if [ ! -e ~/.config ] ; then
