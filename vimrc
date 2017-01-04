@@ -19,6 +19,8 @@ Plug 'rking/ag.vim'
 Plug 'powerline/powerline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Language specific plugins
 "" Python
@@ -200,3 +202,8 @@ execute 'set rtp^=' . g:opamshare . '/ocp-indent/vim'
 let g:racer_cmd = "~/.cargo/bin/racer"
 "" And please set $RUST_SRC_PATH as environment variable
 let g:racer_experimental_completer = 1
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
