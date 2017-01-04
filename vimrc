@@ -1,7 +1,11 @@
 """"""""""""""""""""""""
 ""Plugins(vim-plug)
 """"""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+  call plug#begin('~/.config/nvim/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim'
@@ -74,7 +78,9 @@ set listchars=tab:▸\ ,trail:-,eol:¬
 
 "enable scrolling with mouse
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 "Keymap
 nnoremap sj <C-w>j
