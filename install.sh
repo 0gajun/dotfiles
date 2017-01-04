@@ -21,6 +21,10 @@ fi
 # create working directory
 mkdir $TMP_DIR
 
+if [ ! -e ~/.config ] ; then
+  mkdir ~/.config
+fi
+
 #############################
 ## For Xmonad
 if [ `which xmonad` ] ; then
@@ -39,18 +43,20 @@ else
   echo "tpm is already installed"
 fi
 
+ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+
 
 #############################
 ## For vim
 VIM_ROOT=$HOME/.vim/
 NVIM_ROOT=$HOME/.config/nvim/
 
-ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
-ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT/init.vim
-
 for root in "$VIM_ROOT" "$NVIM_ROOT"
 do
   echo "Installing vim configuration into $root"
+  if [ ! -e $root ]; then
+    mkdir $root
+  fi
 
   ln -sf $DOTFILES_DIR/vim/filetype.vim $root/filetype.vim
   if [ ! -e $root/ftplugin ]; then
@@ -82,8 +88,12 @@ do
   else
     echo "Molokai color scheme is already installed"
   fi
-
 done
+
+ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT/init.vim
+
+
 
 #############################
 ## For zsh
@@ -93,6 +103,8 @@ if [ ! -e ~/.oh-my-zsh ] ; then
 else
   echo "oh-my-zsh is already installed"
 fi
+
+ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
 
 echo 'install zsh-theme'
 cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
@@ -127,24 +139,9 @@ if [ ! -e ~/.anyenv ] ; then
   echo "*** Please restart your shell due to anyenv's installation.***"
 fi
 
-echo 'create symlinks'
-ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
-ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
-# vim
-#neo vim
-NVIM_ROOT_DIR=$HOME/.config/nvim
-if [ ! -e $NVIM_ROOT_DIR ]; then
-  mkdir $NVIM_ROOT_DIR
-fi
-ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT_DIR/init.vim
-ln -sf $DOTFILES_DIR/vim/filetype.vim $NVIM_ROOT_DIR/filetype.vim
-if [ ! -e $NVIM_ROOT_DIR/ftplugin ]; then
-  ln -sf $DOTFILES_DIR/vim/ftplugin $NVIM_ROOT_DIR/ftplugin
-fi
 
-if [ ! -e ~/.config ] ; then
-  mkdir ~/.config
-fi
+#############################
+## peco
 if [ ! -e ~/.config/peco ] ; then
   ln -sf $DOTFILES_DIR/peco ~/.config/peco
 fi
