@@ -97,6 +97,7 @@ nnoremap sub :<C-u>Denite buffer<CR>
 nnoremap <silent> <C-p> :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 nnoremap <C-]> g<C-]>
 inoremap <silent> jk <ESC>
+tnoremap <silent> jk <C-\><C-n>
 
 set backspace=indent,eol,start
 
