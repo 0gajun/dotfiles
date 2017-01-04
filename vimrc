@@ -6,9 +6,9 @@ if has('nvim')
 else
   call plug#begin('~/.vim/plugged')
 endif
-
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neomru.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
@@ -18,7 +18,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/vimshell'
 Plug 'thinca/vim-quickrun'
-"Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rking/ag.vim'
 Plug 'powerline/powerline'
 Plug 'editorconfig/editorconfig-vim'
@@ -91,8 +91,9 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 nnoremap sn gt
 nnoremap sp gT
-nnoremap suf :<C-u>Unite file<CR>
-nnoremap sub :<C-u>Unite buffer<CR>
+nnoremap suf :<C-u>Denite file_rec<CR>
+nnoremap sug :<C-u>Denite grep<CR>
+nnoremap sub :<C-u>Denite buffer<CR>
 nnoremap <silent> <C-p> :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 nnoremap <C-]> g<C-]>
 inoremap <silent> jk <ESC>
@@ -129,13 +130,19 @@ function! MyFugitive()
   return ''
 endfunction
 
+call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+call denite#custom#var('file_rec/git', 'command',
+  \ ['git', 'ls-files', '-co', '--exclude-standard'])
+
 function! DispatchUniteFileRecAsyncOrGit()
   if isdirectory(getcwd()."/.git")
-    Unite file_rec/git
+    :Denite file_rec/git
   else
-    Unite file_rec/async
+    :Denite file_rec
   endif
 endfunction
+" denite.nvim
+call denite#custom#map('insert', "jk", '<denite:enter_mode:normal>', 'noremap')
 
 "vim-session
 " 現在のディレクトリ直下の .vimsessions/ を取得 
@@ -175,16 +182,14 @@ let g:syntastic_python_flake8_args="--ignore=E111"
 let g:syntastic_ocaml_checkers = ['merlin']
 let g:syntastic_rust_checkers = ['rustc']
 
-" NeoComplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_ignore_case = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_enable_camel_case_completion = 0
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
+" Deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+if !exists('g:deoplete#keyword_patterns')
+  let g:deoplete#keyword_patterns = {}
 endif
-let g:neocomplete#keyword_patterns._ = '\h\w*'
+let g:deoplete#keyword_patterns._ = '\h\w*' " Ignore Japanese
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " jedi-vim
