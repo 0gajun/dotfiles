@@ -94,7 +94,6 @@ ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT/init.vim
 
 
-
 #############################
 ## For zsh
 echo 'install oh-my-zsh'
@@ -137,6 +136,23 @@ if [ ! -e ~/.anyenv ] ; then
   echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.zshenv
   echo 'eval "$(anyenv init -)"' >> ~/.zshenv
   echo "*** Please restart your shell due to anyenv's installation.***"
+fi
+
+
+#############################
+## pyenv
+PYENV_ROOT=~/.anyenv/envs/pyenv
+if [ ! -e $PYENV_ROOT ] ; then
+  eval "$(anyenv init -)"
+  anyenv install pyenv
+fi
+# pyenv-virtualenv
+PYENV_VIRTUALENV_ROOT=$PYENV_ROOT/plugins/pyenv-virtualenv
+if [ ! -e $PYENV_VIRTUALENV_ROOT ]; then
+  git clone https://github.com/yyuu/pyenv-virtualenv.git $PYENV_VIRTUALENV_ROOT
+  echo '' >> ~/.zshenv
+  echo '# pyenv-virtualenv' >> ~/.zshenv
+  echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshenv
 fi
 
 
