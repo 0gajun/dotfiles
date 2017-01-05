@@ -1,4 +1,10 @@
 """"""""""""""""""""""""
+"" python path for neovim
+""""""""""""""""""""""""
+let g:python_host_prog = expand("~/.anyenv/envs/pyenv/versions/neovim2/bin/python")
+let g:python3_host_prog = expand("~/.anyenv/envs/pyenv/versions/neovim3/bin/python")
+
+""""""""""""""""""""""""
 ""Plugins(vim-plug)
 """"""""""""""""""""""""
 if has('nvim')
