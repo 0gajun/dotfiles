@@ -98,8 +98,8 @@ ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT/init.vim
 
 #############################
 ## For zsh
-echo 'install oh-my-zsh'
 if [ ! -e ~/.oh-my-zsh ] ; then
+  echo 'Installing oh-my-zsh'
   curl -L http://install.ohmyz.sh | sh || true
 else
   echo "oh-my-zsh is already installed"
@@ -132,8 +132,8 @@ fi
 
 #############################
 ## anyenv
-echo 'install anyenv'
 if [ ! -e ~/.anyenv ] ; then
+  echo 'Installing anyenv'
   git clone https://github.com/riywo/anyenv ~/.anyenv
   echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.zshenv
   echo 'eval "$(anyenv init -)"' >> ~/.zshenv
@@ -145,12 +145,14 @@ fi
 ## pyenv
 PYENV_ROOT=~/.anyenv/envs/pyenv
 if [ ! -e $PYENV_ROOT ] ; then
+  echo 'Installing pyenv'
   eval "$(anyenv init -)"
   anyenv install pyenv
 fi
 # pyenv-virtualenv
 PYENV_VIRTUALENV_ROOT=$PYENV_ROOT/plugins/pyenv-virtualenv
 if [ ! -e $PYENV_VIRTUALENV_ROOT ]; then
+  echo 'Installing pyenv-virtualenv'
   git clone https://github.com/yyuu/pyenv-virtualenv.git $PYENV_VIRTUALENV_ROOT
   echo '' >> ~/.zshenv
   echo '# pyenv-virtualenv' >> ~/.zshenv
