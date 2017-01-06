@@ -20,7 +20,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'kana/vim-submode'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/vimshell'
 Plug 'thinca/vim-quickrun'
@@ -182,6 +182,9 @@ let g:indent_guides_guide_size=1
 let g:indent_guides_start_level=2
 
 "syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
+set statusline+=%*
 let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'active_filetypes': ['c', 'ocaml', 'python', 'ruby'] }
 let g:syntastic_python_checkers = ['flake8']
