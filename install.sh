@@ -163,18 +163,20 @@ fi
 PYENV_VENV_NEOVIM2=$PYENV_ROOT/versions/neovim2
 PYENV_VENV_NEOVIM3=$PYENV_ROOT/versions/neovim3
 if [ ! -e $PYENV_VENV_NEOVIM2 ]; then
+  pyenv install $PYTHON2_VERSION
   echo ">>> Please install neovim extension of python2. Execute following commands"
-  echo "pyenv virtualenv $PYTHON2_VERSION neovim2"
-  echo "pyenv activate neovim2"
-  echo "pip install neovim"
+  echo ""
+  echo "pyenv virtualenv $PYTHON2_VERSION neovim2 && pyenv activate neovim2 && pip install neovim && pyenv deactivate neovim2"
+  echo ""
   echo "<<<"
 fi
 
 if [ ! -e $PYENV_VENV_NEOVIM3 ]; then
+  pyenv install $PYTHON3_VERSION
   echo ">>> Please install neovim extension of python3. Execute following commands"
-  echo "pyenv virtualenv $PYTHON3_VERSION neovim3"
-  echo "pyenv activate neovim3"
-  echo "pip install neovim"
+  echo ""
+  echo "pyenv virtualenv $PYTHON3_VERSION neovim3 && pyenv activate neovim3 && pip install neovim && pyenv deactivate neovim3"
+  echo ""
   echo "<<<"
 fi
 
