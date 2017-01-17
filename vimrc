@@ -191,6 +191,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--ignore=E111"
 let g:syntastic_ocaml_checkers = ['merlin']
 let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_sh_checkers = ['shellcheck']
 
 " Deoplete.nvim
 let g:deoplete#enable_at_startup = 1
