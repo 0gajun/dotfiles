@@ -22,7 +22,6 @@ Plug 'kana/vim-submode'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/vimshell'
 Plug 'thinca/vim-quickrun'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rking/ag.vim'
