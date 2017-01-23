@@ -187,6 +187,18 @@ if [ ! -e ~/.config/peco ] ; then
   ln -sf $DOTFILES_DIR/peco ~/.config/peco
 fi
 
+
+#############################
+## VS Code
+if [ $platform = 'OSX' ] ; then
+  mkdir -p ~/Library/Application\ Support/Code/User/
+  ln -sf $DOTFILES_DIR/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+elif [ $platform = 'linux' ] ; then
+  mkdir -p ~/.config/Code/User/
+  ln -sf $DOTFILES_DIR/vscode/settings.json ~/.config/Code/User/settings.json
+fi
+
+
 echo 'remove working directory'
 rm -rf $TMP_DIR
 
