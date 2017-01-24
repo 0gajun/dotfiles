@@ -1,9 +1,9 @@
 // Place your settings in this file to overwrite the default settings
 {
     "vim.insertModeKeyBindings": [
-       {
-           "before": ["j", "k"],
-           "after": ["<Esc>"]
-       }
-  ]
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ]
 }
