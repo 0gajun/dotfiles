@@ -46,6 +46,7 @@ Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
 Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
 "" Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go', 'tag': '*' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 "" cofee-script
 Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
 "" Terraform
