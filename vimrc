@@ -84,6 +84,8 @@ set hlsearch
 set list
 set listchars=tab:▸\ ,trail:-,eol:¬
 
+:command Path echo expand("%:p")
+
 "enable scrolling with mouse
 set mouse=a
 if !has('nvim')
