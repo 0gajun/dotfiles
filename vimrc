@@ -229,6 +229,8 @@ let g:racer_cmd = "~/.cargo/bin/racer"
 au FileType rust nmap gd <Plug>(rust-def)
 "" And please set $RUST_SRC_PATH as environment variable
 let g:racer_experimental_completer = 1
+"" rust-fmt
+let g:rustfmt_autosave = 1
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
