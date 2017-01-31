@@ -99,7 +99,7 @@ nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 nnoremap sn gt
 nnoremap sp gT
-nnoremap suf :<C-u>Denite file_rec<CR>
+nnoremap suf :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 nnoremap sug :<C-u>Denite grep<CR>
 nnoremap sub :<C-u>Denite buffer<CR>
 nnoremap <silent> <C-p> :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
@@ -226,6 +226,7 @@ endif
 
 " racer-rust/vim-racer
 let g:racer_cmd = "~/.cargo/bin/racer"
+au FileType rust nmap gd <Plug>(rust-def)
 "" And please set $RUST_SRC_PATH as environment variable
 let g:racer_experimental_completer = 1
 
