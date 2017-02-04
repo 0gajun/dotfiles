@@ -38,6 +38,7 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 "" C++
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+Plug 'justmao945/vim-clang', { 'for': ['c', 'cpp'] }
 "" Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 "" Jinja
