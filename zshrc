@@ -65,7 +65,7 @@ alias -g H='| head'
 alias vim='nvim'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
-alias g='cd $(ghq root)/$(ghq list | peco)'
+alias gcd='cd $(ghq root)/$(ghq list | peco)' # Git Change Directory
 
 ####################
 # Functions
