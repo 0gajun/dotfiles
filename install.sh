@@ -105,6 +105,11 @@ else
   echo "oh-my-zsh is already installed"
 fi
 
+if [ ! -e ~/.zplug ]; then
+  echo 'Installing zplug...'
+  git clone https://github.com/zplug/zplug $HOME/.zplug
+fi
+
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
 
 echo 'install zsh-theme'
