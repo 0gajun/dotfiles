@@ -2,18 +2,29 @@
 # You should place Environment variable in ~/.zshenv.
 # Don't place in this file
 
-####################
-# Oh-my-zsh Settings
+# ZPlug
+source ~/.zplug/init.zsh
 
-export ZSH=$HOME/.oh-my-zsh
+zplug 'zsh-users/zsh-history-substring-search'
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'zsh-users/zsh-completions'
 
+## Theme
+zplug 'oskarkrawczyk/honukai-iterm-zsh', as:theme
 ZSH_THEME="honukai"
 
-CASE_SENSITIVE="false"
+#zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-plugins=(rails git python)
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
 
-source $ZSH/oh-my-zsh.sh
+zplug load --verbose
 
 ####################
 # Zsh settings
@@ -32,6 +43,13 @@ bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 bindkey "^[OA" history-search-backward
 bindkey "^[OB" history-search-forward
+
+# Interactive selection
+CASE_SENSITIVE="false"
+zstyle ':completion:*' menu select interactive
+setopt menu_complete
+zmodload zsh/complist
+bindkey -M menuselect '\t' forward-char
 
 # Enable using commnd stack by pressing C-q
 show_buffer_stack() {
@@ -66,6 +84,11 @@ alias vim='nvim'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
 alias gcd='cd $(ghq root)/$(ghq list | peco)' # Git Change Directory
+
+alias gd='git diff'
+alias ga='git add'
+alias gs='git status'
+alias gc='git commit'
 
 ####################
 # Functions
