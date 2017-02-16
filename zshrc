@@ -1,34 +1,27 @@
-# Notice
-# You should place Environment variable in ~/.zshenv.
-# Don't place in this file
+####################
+# zplug
+if [[ -f ~/.zplug/init.zsh ]]; then
+  export ZPLUG_LOADFILE=~/.zsh/zplug.zsh
+  source ~/.zplug/init.zsh
 
-# ZPlug
-source ~/.zplug/init.zsh
-
-zplug 'zsh-users/zsh-history-substring-search'
-zplug 'zsh-users/zsh-autosuggestions'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug 'zsh-users/zsh-completions'
-
-## Theme
-zplug 'oskarkrawczyk/honukai-iterm-zsh', as:theme
-ZSH_THEME="honukai"
-
-#zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    fi
+    echo
   fi
-fi
 
-zplug load --verbose
+  zplug load
+fi
 
 ####################
 # Zsh settings
 
+ZSH_THEME="honukai"
+
+# vim like keybindings
 bindkey -v
 
 # Entering to vim-cmd-mode by pressing 'jk'
@@ -47,9 +40,11 @@ bindkey "^[OB" history-search-forward
 # Interactive selection
 CASE_SENSITIVE="false"
 zstyle ':completion:*' menu select interactive
-setopt menu_complete
 zmodload zsh/complist
-bindkey -M menuselect '\t' forward-char
+bindkey -M menuselect '^l' forward-char
+bindkey -M menuselect '^j' down-line-or-history
+bindkey -M menuselect '^k' up-line-or-history
+bindkey -M menuselect '^h' backward-char
 
 # Enable using commnd stack by pressing C-q
 show_buffer_stack() {
@@ -80,6 +75,7 @@ alias -g H='| head'
 
 ###################
 # Alias
+alias la='ls -alF'
 alias vim='nvim'
 alias rm='rm -i'
 alias mkdir='mkdir -p'

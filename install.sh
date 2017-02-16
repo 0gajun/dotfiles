@@ -111,6 +111,7 @@ if [ ! -e ~/.zplug ]; then
 fi
 
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
+ln -sf $DOTFILES_DIR/.zsh ~/.zsh
 
 echo 'install zsh-theme'
 cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
