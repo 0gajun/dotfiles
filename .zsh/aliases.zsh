@@ -4,6 +4,8 @@ alias -g L='| less'
 alias -g G='| grep'
 alias -g H='| head'
 
+alias -g J='| jq .'
+
 ###################
 # Alias
 alias la='ls -alF'
