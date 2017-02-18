@@ -8,6 +8,17 @@ alias -g J='| jq .'
 
 ###################
 # Alias
+
+if (( $+commands[gls] )); then
+  alias ls='gls -F --color --group-directories-first'
+elif (( $+commands[ls] )); then
+  if is_osx; then
+    alias ls='ls -GF'
+  else
+    alias ls='ls -F --color'
+  fi
+fi
+
 alias la='ls -alF'
 alias vim='nvim'
 alias rm='rm -i'
