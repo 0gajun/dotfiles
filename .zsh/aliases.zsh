@@ -19,6 +19,10 @@ elif (( $+commands[ls] )); then
   fi
 fi
 
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
 alias la='ls -alF'
 alias vim='nvim'
 alias rm='rm -i'
