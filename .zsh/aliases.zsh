@@ -28,6 +28,7 @@ alias vim='nvim'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
 alias gcd='cd $(ghq root)/$(ghq list | peco)' # Git Change Directory
+alias history='history 0'
 
 alias gd='git diff'
 alias ga='git add'
