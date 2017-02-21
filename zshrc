@@ -13,23 +13,5 @@ if [[ -f ~/.zplug/init.zsh ]]; then
     echo
   fi
 
-  zplug load
+  zplug load --verbose
 fi
-
-####################
-# Zsh misc settings
-
-CASE_SENSITIVE="false"
-ZSH_THEME="honukai"
-
-# History Settings
-HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=50000
-
-# disable beep
-setopt nobeep
-# disable flowcontrol
-setopt noflowcontrol
-
-setopt hist_ignore_all_dups

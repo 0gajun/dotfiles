@@ -15,8 +15,6 @@ bindkey "^[OA" history-search-backward
 bindkey "^[OB" history-search-forward
 
 # Interactive selection
-zstyle ':completion:*' menu select interactive
-zmodload zsh/complist
 bindkey -M menuselect '\t' forward-char
 bindkey -M menuselect '^l' forward-char
 bindkey -M menuselect '^j' down-line-or-history
@@ -32,4 +30,5 @@ show_buffer_stack() {
 zle -N show_buffer_stack
 bindkey '^Q' show_buffer_stack
 
-zle -la history-incremental-pattern-search-backward && bindkey "^r" history-incremental-pattern-search-backward
+zle -la history-incremental-pattern-search-backward
+bindkey "^r" history-incremental-pattern-search-backward

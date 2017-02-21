@@ -3,7 +3,7 @@ ostype() {
 }
 
 is_osx() {
-  if [[ ostype() == 'darwin' ]]; then
+  if [[ "$(ostype)" == 'darwin' ]]; then
     return 0
   else
     return 1
