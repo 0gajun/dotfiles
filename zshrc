@@ -13,5 +13,5 @@ if [[ -f ~/.zplug/init.zsh ]]; then
     echo
   fi
 
-  zplug load --verbose
+  zplug load
 fi
