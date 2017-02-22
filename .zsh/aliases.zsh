@@ -27,7 +27,6 @@ alias la='ls -alF'
 alias vim='nvim'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
-alias gcd='cd $(ghq root)/$(ghq list | peco)' # Git Change Directory
 alias history='history 0'
 
 alias gd='git diff'
@@ -49,4 +48,13 @@ function ssh-host-search() {
 }
 alias sshs='ssh $(ssh-host-search)'
 
+function ghq-interactive-directory-select-and-cd() {
+  if [[ -z $1 ]]; then
+    cd $(ghq root)/$(ghq list | peco)
+  else
+    cd $(ghq root)/$(ghq list | peco --query $1)
+  fi
+}
+
+alias gcd=ghq-interactive-directory-select-and-cd # Git Change Directory
 
