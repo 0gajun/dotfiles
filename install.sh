@@ -76,7 +76,7 @@ do
   # install Solarized color scheme for vim
   if [ ! -e $root/colors/solarized.vim ] ; then
     echo "Install solalized color scheme"
-    if [ ! -e $TMP_DIR/vim-colors-solarized/]; then
+    if [ ! -e $TMP_DIR/vim-colors-solarized/ ]; then
       git clone https://github.com/altercation/vim-colors-solarized.git $TMP_DIR/vim-colors-solarized/
     fi
     cp -r $TMP_DIR/vim-colors-solarized/* $root
@@ -87,7 +87,7 @@ do
   # install molokai color scheme for vim
   if [ ! -e $root/colors/molokai.vim ] ; then
     echo "Install molokai color scheme"
-    if [! -e $TMP_DIR/molokai/]; then
+    if [ ! -e $TMP_DIR/molokai/ ]; then
       git clone https://github.com/Oga-Jun/molokai.git $TMP_DIR/molokai/
     fi
     cp $TMP_DIR/molokai/colors/molokai.vim $root/colors/molokai.vim

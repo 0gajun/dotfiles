@@ -188,7 +188,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*
 let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['c', 'ocaml', 'python', 'ruby'] }
+            \ 'active_filetypes': ['c', 'ocaml', 'python', 'ruby', 'sh'] }
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args="--ignore=E111"
 let g:syntastic_ocaml_checkers = ['merlin']
