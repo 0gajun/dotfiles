@@ -102,13 +102,6 @@ ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT/init.vim
 
 #############################
 ## For zsh
-if [ ! -e ~/.oh-my-zsh ] ; then
-  echo 'Installing oh-my-zsh'
-  curl -L http://install.ohmyz.sh | sh || true
-else
-  echo "oh-my-zsh is already installed"
-fi
-
 if [ ! -e ~/.zplug ]; then
   echo 'Installing zplug...'
   git clone https://github.com/zplug/zplug $HOME/.zplug
@@ -116,10 +109,6 @@ fi
 
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
 ln -sf $DOTFILES_DIR/.zsh ~/.zsh
-
-echo 'install zsh-theme'
-cp $DOTFILES_DIR/zsh-theme/honukai.zsh-theme ~/.oh-my-zsh/themes/
-
 
 #############################
 ## PATH problem workaround for OSX El Capitan.
@@ -168,6 +157,7 @@ if [ ! -e $PYENV_VIRTUALENV_ROOT ]; then
   echo '' >> ~/.zshenv
   echo '# pyenv-virtualenv' >> ~/.zshenv
   echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshenv
+  source ~/.zshenv
 fi
 
 # install python for neovim
