@@ -15,6 +15,7 @@ bindkey "^[OA" history-search-backward
 bindkey "^[OB" history-search-forward
 
 # Interactive selection
+zmodload zsh/complist # load to set menuselect key bindings
 bindkey -M menuselect '\t' forward-char
 bindkey -M menuselect '^l' forward-char
 bindkey -M menuselect '^j' down-line-or-history
