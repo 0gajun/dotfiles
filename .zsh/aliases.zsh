@@ -24,7 +24,6 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 
 alias la='ls -alF'
-alias vim='nvim'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
 alias history='history 0'
