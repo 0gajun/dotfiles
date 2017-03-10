@@ -1,5 +1,9 @@
 # Theme
-ZSH_THEME="honukai"
+if [[ is_osx ]]; then
+  ZSH_THEME="honukai"
+else
+  ZSH_THEME="agnoster"
+fi
 
 # History Settings
 HISTFILE=~/.zsh_history
