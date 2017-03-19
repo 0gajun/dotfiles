@@ -23,7 +23,7 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
-alias la='ls -alF'
+alias la='ls -alF -h'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
 alias history='history 0'
