@@ -159,7 +159,11 @@ if [ ! -e $PYENV_VIRTUALENV_ROOT ]; then
   echo '' >> ~/.zshenv
   echo '# pyenv-virtualenv' >> ~/.zshenv
   echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshenv
-  source ~/.zshenv
+  echo "*** Please restart your shell due to pyenv-virtualenv's installation.***"
+  echo "After that, please re-run this script"
+  echo '** remove working directory'
+  rm -rf $TMP_DIR
+  exit 0
 fi
 
 # install python for neovim
