@@ -137,7 +137,10 @@ if [ ! -e ~/.anyenv ] ; then
   echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.zshenv
   echo 'eval "$(anyenv init -)"' >> ~/.zshenv
   echo "*** Please restart your shell due to anyenv's installation.***"
-  source ~/.zshenv
+  echo "After that, please re-run this script"
+  echo '** remove working directory'
+  rm -rf $TMP_DIR
+  exit 0
 fi
 
 
@@ -146,7 +149,6 @@ fi
 PYENV_ROOT=~/.anyenv/envs/pyenv
 if [ ! -e $PYENV_ROOT ] ; then
   echo 'Installing pyenv'
-  eval "$(anyenv init -)"
   anyenv install pyenv
 fi
 # pyenv-virtualenv
