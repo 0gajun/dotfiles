@@ -31,6 +31,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'airblade/vim-gitgutter'
 
 " Language specific plugins
 "" Python
