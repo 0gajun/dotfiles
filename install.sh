@@ -108,7 +108,9 @@ if [ ! -e ~/.zplug ]; then
 fi
 
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
-ln -sf $DOTFILES_DIR/.zsh ~/.zsh
+if [ ! -e ~/.zsh ]; then
+  ln -sf $DOTFILES_DIR/.zsh ~/.zsh
+fi
 
 #############################
 ## PATH problem workaround for OSX El Capitan.
