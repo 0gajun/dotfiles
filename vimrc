@@ -32,6 +32,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
 
 " Language specific plugins
 "" Python
