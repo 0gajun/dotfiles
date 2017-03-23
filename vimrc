@@ -108,6 +108,7 @@ nnoremap sug :<C-u>Denite grep<CR>
 nnoremap sub :<C-u>Denite buffer<CR>
 nnoremap <C-]> g<C-]>
 inoremap <silent> jk <ESC>
+vnoremap <silent> jk <ESC>
 tnoremap <silent> jk <C-\><C-n>
 
 set backspace=indent,eol,start
@@ -124,7 +125,7 @@ let g:lightline = {
   \             [ 'fugitive', 'filename'] ]
   \ },
   \ 'component_function': {
-  \   'fugitive': 'MyFugitive'
+  \   'fugitive': 'FugitiveHeadBranch'
   \ },
   \ 'separator': {
   \     'left': "\ue0b0", 'right': "\ue0b2"
@@ -134,7 +135,7 @@ let g:lightline = {
   \ }
   \}
 
-function! MyFugitive()
+function! FugitiveHeadBranch()
   if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
     let _ = fugitive#head()
     return strlen(_) ? "\ue0a0 "._ : ''
