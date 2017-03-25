@@ -108,7 +108,6 @@ nnoremap sug :<C-u>Denite grep<CR>
 nnoremap sub :<C-u>Denite buffer<CR>
 nnoremap <C-]> g<C-]>
 inoremap <silent> jk <ESC>
-vnoremap <silent> jk <ESC>
 tnoremap <silent> jk <C-\><C-n>
 
 set backspace=indent,eol,start
