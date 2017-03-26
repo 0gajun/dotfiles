@@ -118,7 +118,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 "LightLine
 set noshowmode
 let g:lightline = {
-	\	'colorscheme': 'wombat',
+  \ 'colorscheme': 'wombat',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'filename'] ]
