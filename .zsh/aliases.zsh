@@ -58,3 +58,8 @@ function ghq-interactive-directory-select-and-cd() {
 
 alias gcd=ghq-interactive-directory-select-and-cd # Git Change Directory
 
+unalias z 2> /dev/null
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+}

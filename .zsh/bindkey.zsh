@@ -31,5 +31,9 @@ show_buffer_stack() {
 zle -N show_buffer_stack
 bindkey '^Q' show_buffer_stack
 
-zle -la history-incremental-pattern-search-backward
-bindkey "^r" history-incremental-pattern-search-backward
+function select-history() {
+  BUFFER=$(\history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
