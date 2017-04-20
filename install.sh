@@ -126,7 +126,6 @@ if [ $platform = 'OSX' ] ; then
     TMP_ZSHENV=$TMP_DIR/zshenv
     cat ./osx/workaround_loading_path_in_el_capitan ~/.zshenv > $TMP_ZSHENV
     mv $TMP_ZSHENV ~/.zshenv
-    rm $TMP_ZSHENV
   fi
 fi
 
