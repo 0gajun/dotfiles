@@ -243,3 +243,6 @@ let g:rustfmt_autosave = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" vim-clang
+let g:clang_auto=0
