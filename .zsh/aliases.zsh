@@ -44,7 +44,7 @@ function git-changed-files() {
 alias -g GF='$(git-changed-files)'
 
 function ssh-host-search() {
-  cat ~/.ssh/config | grep "^Host" | awk '{print $2;}' | peco 
+  cat ~/.ssh/config | grep "^Host" | awk '{print $2;}' | peco
 }
 alias sshs='ssh $(ssh-host-search)'
 
