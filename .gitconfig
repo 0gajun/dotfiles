@@ -2,7 +2,7 @@
     editor = vim
     excludesfile = ~/.gitignore_global
 [user]
-    name = oga
+    name = Junya Ogasawara
     email = oga.ivc.s27@gmail.com
 [alias]
     st = status

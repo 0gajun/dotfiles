@@ -206,6 +206,11 @@ elif [ $platform = 'linux' ] ; then
   ln -sf $DOTFILES_DIR/vscode/settings.json ~/.config/Code/User/settings.json
 fi
 
+#############################
+## Copy .gitconfig template if not exist
+if [ ! -e $HOME/.gitconfig ]; then
+  cp -n $DOTFILES_DIR/.gitconfig $HOME/.gitconfig
+fi
 
 echo 'remove working directory'
 rm -rf $TMP_DIR
