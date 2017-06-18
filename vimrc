@@ -180,9 +180,9 @@ call submode#map('winsize', 'n', '', '>', '<C-w>>')
 call submode#map('winsize', 'n', '', '<', '<C-w><')
 
 "vim-indent-guides
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
-let g:indent_guides_start_level=2
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
 "syntastic
 set statusline+=%#warningmsg#
@@ -191,7 +191,7 @@ set statusline+=%*
 let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'active_filetypes': ['c', 'ocaml', 'python', 'ruby', 'sh'] }
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args="--ignore=E111"
+let g:syntastic_python_flake8_args ="--ignore=E111"
 let g:syntastic_ocaml_checkers = ['merlin']
 let g:syntastic_rust_checkers = ['rustc']
 let g:syntastic_sh_checkers = ['shellcheck']
@@ -240,9 +240,9 @@ let g:racer_experimental_completer = 1
 let g:rustfmt_autosave = 1
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
 " vim-clang
-let g:clang_auto=0
+let g:clang_auto = 0
