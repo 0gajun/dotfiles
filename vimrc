@@ -58,6 +58,9 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 "" Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+"" Haskell
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell'}
+Plug 'dag/vim2hs', { 'for': 'haskell'}
 
 call plug#end()
 
