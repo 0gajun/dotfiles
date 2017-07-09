@@ -49,11 +49,7 @@ function ssh-host-search() {
 alias sshs='ssh $(ssh-host-search)'
 
 function ghq-interactive-directory-select-and-cd() {
-  if [[ -z $1 ]]; then
-    cd $(ghq root)/$(ghq list | peco)
-  else
-    cd $(ghq root)/$(ghq list | peco --query $1)
-  fi
+  cd $(ghq root)/$(ghq list | fzf --height=20 --no-sort +m --query "$LBUFFER" --prompt="Repository > ")
 }
 
 alias gcd=ghq-interactive-directory-select-and-cd # Git Change Directory
@@ -63,3 +59,8 @@ z() {
   [ $# -gt 0 ] && _z "$*" && return
   cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
 }
+
+function git-branch-filter() {
+  git branch | peco | sed -e "s/^\*\s*//g"
+}
+alias -g GB='$(git-branch-filter)'
