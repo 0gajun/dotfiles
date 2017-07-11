@@ -1,7 +1,7 @@
 ####################
 # Global Alias
 alias -g L='| less'
-alias -g G='| grep'
+alias -g G='| grep -i'
 alias -g H='| head'
 
 alias -g J='| jq .'
