@@ -20,7 +20,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'kana/vim-submode'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticCheck' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
@@ -33,6 +32,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'w0rp/ale'
 
 " Language specific plugins
 "" Python
@@ -187,18 +187,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
-"syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
-set statusline+=%*
-let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['c', 'ocaml', 'python', 'ruby', 'sh'] }
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args ="--ignore=E111"
-let g:syntastic_ocaml_checkers = ['merlin']
-let g:syntastic_rust_checkers = ['rustc']
-let g:syntastic_sh_checkers = ['shellcheck']
-
 " Deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
@@ -251,3 +239,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
 " vim-clang
 let g:clang_auto = 0
+
+" ale
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:ale_sign_column_always = 1
