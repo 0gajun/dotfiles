@@ -64,3 +64,20 @@ function git-branch-filter() {
   git branch | peco | sed -e "s/^\*\s*//g"
 }
 alias -g GB='$(git-branch-filter)'
+
+function create-new-repository() {
+  if [ -z $GHQ_ROOT ]; then
+    echo "\$GHQ_ROOT is not defined"
+    return 1
+  fi
+
+  if [ -z $1 ]; then
+    echo "Must specify repo name"
+    return 1
+  fi
+
+  dst=$GHQ_ROOT/github.com/0gajun/$1
+  mkdir $dst && cd $dst && git init
+}
+
+alias create-repo='create-new-repository'
