@@ -77,6 +77,7 @@ function create-new-repository() {
   fi
 
   dst=$GHQ_ROOT/github.com/0gajun/$1
+  echo "Creating repo to $dst"
   mkdir $dst && cd $dst && git init
 }
 
