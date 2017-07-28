@@ -1,6 +1,6 @@
 #!/bin/sh
 TMP_DIR=~/tmp-dotfiles
-DOTFILES_DIR=$(cd $(dirname $0);pwd)
+DOTFILES_DIR=$(cd "$(dirname "$0")";pwd)
 PYTHON2_VERSION=2.7.13
 PYTHON3_VERSION=3.5.2
 
@@ -9,13 +9,13 @@ set -e
 
 ## Detect platform
 platform='unknown'
-unamestr=`uname`
+unamestr=$(uname)
 case "$unamestr" in
   Darwin*) platform='OSX' ;;
   Linux*) platform='linux' ;;
 esac
 
-if [ ! `which zsh` ] ; then
+if [ ! "$(which zsh)" ] ; then
   echo "Please install zsh before this installation"
   exit 1
 fi
@@ -29,11 +29,11 @@ fi
 
 #############################
 ## For Xmonad
-if [ `which xmonad` ] ; then
+if [ "$(which xmonad)" ] ; then
   if [ ! -e ~/.xmonad ] ; then
     mkdir ~/.xmonad
   fi
-  ln -sf $DOTFILES_DIR/xmonad/* ~/.xmonad/
+  ln -sf "$DOTFILES_DIR/xmonad/*" ~/.xmonad/
 fi
 
 #############################
@@ -45,7 +45,7 @@ else
   echo "tpm is already installed"
 fi
 
-ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+ln -sf "$DOTFILES_DIR/tmux.conf" ~/.tmux.conf
 
 
 #############################
@@ -56,60 +56,60 @@ NVIM_ROOT=$HOME/.config/nvim/
 for root in "$VIM_ROOT" "$NVIM_ROOT"
 do
   echo "Installing vim configuration into $root"
-  if [ ! -e $root ]; then
-    mkdir $root
+  if [ ! -e "$root" ]; then
+    mkdir "$root"
   fi
 
-  ln -sf $DOTFILES_DIR/vim/filetype.vim $root/filetype.vim
-  if [ ! -e $root/ftplugin ]; then
-    ln -sf $DOTFILES_DIR/vim/ftplugin $root/ftplugin
+  ln -sf "$DOTFILES_DIR/vim/filetype.vim" "$root/filetype.vim"
+  if [ ! -e "$root/ftplugin" ]; then
+    ln -sf "$DOTFILES_DIR/vim/ftplugin" "$root/ftplugin"
   fi
 
   # install vim-plug
-  if [ ! -e $root/autoload/plug.vim ] ; then
-    curl -fLo $root/autoload/plug.vim --create-dirs \
+  if [ ! -e "$root/autoload/plug.vim" ] ; then
+    curl -fLo "$root/autoload/plug.vim" --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   else
     echo "vim-plug is already installed"
   fi
 
   # install Solarized color scheme for vim
-  if [ ! -e $root/colors/solarized.vim ] ; then
+  if [ ! -e "$root/colors/solarized.vim" ] ; then
     echo "Install solalized color scheme"
     if [ ! -e $TMP_DIR/vim-colors-solarized/ ]; then
       git clone https://github.com/altercation/vim-colors-solarized.git $TMP_DIR/vim-colors-solarized/
     fi
-    cp -r $TMP_DIR/vim-colors-solarized/* $root
+    cp -r "$TMP_DIR/vim-colors-solarized/*" "$root"
   else
     echo "Solarized is already installed"
   fi
 
   # install molokai color scheme for vim
-  if [ ! -e $root/colors/molokai.vim ] ; then
+  if [ ! -e "$root/colors/molokai.vim" ] ; then
     echo "Install molokai color scheme"
     if [ ! -e $TMP_DIR/molokai/ ]; then
       git clone https://github.com/Oga-Jun/molokai.git $TMP_DIR/molokai/
     fi
-    cp $TMP_DIR/molokai/colors/molokai.vim $root/colors/molokai.vim
+    cp $TMP_DIR/molokai/colors/molokai.vim "$root/colors/molokai.vim"
   else
     echo "Molokai color scheme is already installed"
   fi
 done
 
-ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
-ln -sf $DOTFILES_DIR/vimrc $NVIM_ROOT/init.vim
+ln -sf "$DOTFILES_DIR/vimrc" ~/.vimrc
+ln -sf "$DOTFILES_DIR/vimrc" "$NVIM_ROOT/init.vim"
 
 
 #############################
 ## For zsh
 if [ ! -e ~/.zplug ]; then
   echo 'Installing zplug...'
-  git clone https://github.com/zplug/zplug $HOME/.zplug
+  git clone https://github.com/zplug/zplug "$HOME/.zplug"
 fi
 
-ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
+ln -sf "$DOTFILES_DIR/zshrc" ~/.zshrc
 if [ ! -e ~/.zsh ]; then
-  ln -sf $DOTFILES_DIR/.zsh ~/.zsh
+  ln -sf "$DOTFILES_DIR/.zsh" ~/.zsh
 fi
 
 #############################
@@ -120,8 +120,8 @@ fi
 
 if [ $platform = 'OSX' ] ; then
   # Checking whether zshenv is patched or not
-  matched_line=`grep -c no_global_rcs ~/.zshenv` || true
-  if [ $matched_line -eq 0 ] ; then
+  matched_line=$( grep -c no_global_rcs ~/.zshenv ) || true
+  if [ "$matched_line" -eq 0 ] ; then
     echo "Patching zsh workaround for OSX El Capitan"
     TMP_ZSHENV=$TMP_DIR/zshenv
     cat ./osx/workaround_loading_path_in_el_capitan ~/.zshenv > $TMP_ZSHENV
@@ -135,8 +135,12 @@ fi
 if [ ! -e ~/.anyenv ] ; then
   echo 'Installing anyenv'
   git clone https://github.com/riywo/anyenv ~/.anyenv
-  echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.zshenv
-  echo 'eval "$(anyenv init -)"' >> ~/.zshenv
+  {
+    # shellcheck disable=SC2016
+    echo 'export PATH="$HOME/.anyenv/bin:$PATH"'
+    # shellcheck disable=SC2016
+    echo 'eval "$(anyenv init -)"'
+  } >> ~/.zshenv
   echo "*** Please restart your shell due to anyenv's installation.***"
   echo "After that, please re-run this script"
   echo '** remove working directory'
@@ -157,9 +161,14 @@ PYENV_VIRTUALENV_ROOT=$PYENV_ROOT/plugins/pyenv-virtualenv
 if [ ! -e $PYENV_VIRTUALENV_ROOT ]; then
   echo 'Installing pyenv-virtualenv'
   git clone https://github.com/yyuu/pyenv-virtualenv.git $PYENV_VIRTUALENV_ROOT
-  echo '' >> ~/.zshenv
-  echo '# pyenv-virtualenv' >> ~/.zshenv
-  echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshenv
+
+  {
+    echo ''
+    echo '# pyenv-virtualenv'
+    # shellcheck disable=SC2016
+    echo 'eval "$(pyenv virtualenv-init -)"'
+  } >> ~/.zshenv
+
   echo "*** Please restart your shell due to pyenv-virtualenv's installation.***"
   echo "After that, please re-run this script"
   echo '** remove working directory'
@@ -192,7 +201,7 @@ fi
 #############################
 ## peco
 if [ ! -e ~/.config/peco ] ; then
-  ln -sf $DOTFILES_DIR/peco ~/.config/peco
+  ln -sf "$DOTFILES_DIR/peco" ~/.config/peco
 fi
 
 
@@ -200,16 +209,16 @@ fi
 ## VS Code
 if [ $platform = 'OSX' ] ; then
   mkdir -p ~/Library/Application\ Support/Code/User/
-  ln -sf $DOTFILES_DIR/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+  ln -sf "$DOTFILES_DIR/vscode/settings.json" ~/Library/Application\ Support/Code/User/settings.json
 elif [ $platform = 'linux' ] ; then
   mkdir -p ~/.config/Code/User/
-  ln -sf $DOTFILES_DIR/vscode/settings.json ~/.config/Code/User/settings.json
+  ln -sf "$DOTFILES_DIR/vscode/settings.json" ~/.config/Code/User/settings.json
 fi
 
 #############################
 ## Copy .gitconfig template if not exist
-if [ ! -e $HOME/.gitconfig ]; then
-  cp -n $DOTFILES_DIR/.gitconfig $HOME/.gitconfig
+if [ ! -e "$HOME/.gitconfig" ]; then
+  cp -n "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 fi
 
 echo 'remove working directory'
