@@ -237,9 +237,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
-" vim-clang
-let g:clang_auto = 0
-
 " ale
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
