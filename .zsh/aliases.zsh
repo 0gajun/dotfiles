@@ -49,7 +49,11 @@ function ssh-host-search() {
 alias sshs='ssh $(ssh-host-search)'
 
 function ghq-interactive-directory-select-and-cd() {
-  cd $(ghq root)/$(ghq list | fzf --height=20 --no-sort +m --query "$LBUFFER" --prompt="Repository > ")
+  target=$(ghq list | fzf --height=20 --no-sort +m --query "$1" --prompt="Repository > ")
+  if [ -z $target ]; then
+    return 0
+  fi
+  cd $(ghq root)/$target
 }
 
 alias gcd=ghq-interactive-directory-select-and-cd # Git Change Directory
