@@ -35,7 +35,7 @@ alias gs='git status'
 alias gc='git commit'
 
 alias tf='terraform'
-alias tfp='terraform plan'
+alias tp='terraform plan'
 
 ####################
 # Functions
