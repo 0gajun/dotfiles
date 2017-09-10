@@ -115,6 +115,8 @@ tnoremap <silent> jk <C-\><C-n>
 
 set backspace=indent,eol,start
 
+autocmd BufWritePre * :%s/\s\+$//ge
+
 " For vimgrep
 autocmd QuickFixCmdPost *grep* cwindow
 
