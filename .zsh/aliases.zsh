@@ -46,10 +46,14 @@ function git-changed-files() {
 }
 alias -g GF='$(git-changed-files)'
 
-function ssh-host-search() {
-  cat ~/.ssh/config | grep "^Host" | awk '{print $2;}' | peco
+function ssh-host-search-and-connect() {
+  ssh_host=$(cat ~/.ssh/config | grep "^Host" | awk '{print $2;}' | peco)
+  echo "======================="
+  echo "Connecting to $ssh_host"
+  echo "=======================\n"
+  ssh $ssh_host
 }
-alias sshs='ssh $(ssh-host-search)'
+alias sshs=ssh-host-search-and-connect
 
 function ghq-interactive-directory-select-and-cd() {
   target=$(ghq list | fzf --height=20 --no-sort +m --query "$1" --prompt="Repository > ")
