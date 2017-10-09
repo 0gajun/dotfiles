@@ -61,6 +61,8 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "" Haskell
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell'}
 Plug 'dag/vim2hs', { 'for': 'haskell'}
+"" Toml
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 call plug#end()
 
@@ -82,7 +84,7 @@ set laststatus=2
 
 set ts=2 sw=2 et
 set autoindent
-set cindent 
+set cindent
 set smarttab
 
 set incsearch
