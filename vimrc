@@ -246,12 +246,14 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
+"" Enabling to use c++11
+let g:ale_cpp_clangcheck_options = "-extra-arg -std=c++11"
 
 " deoplete-clang
 if has('mac')
   let g:deoplete#sources#clang#libclang_path  = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
   let g:deoplete#sources#clang#clang_header   = "/usr/local/opt/llvm/include"
 else
-  let g:deoplete#sources#clang#libclang_path  = ""
-  let g:deoplete#sources#clang#clang_header   = ""
+  let g:deoplete#sources#clang#libclang_path  = "/usr/lib/llvm-3.8/lib/libclang.so"
+  let g:deoplete#sources#clang#clang_header   = "/usr/include/clang"
 endif
