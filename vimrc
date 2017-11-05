@@ -41,7 +41,8 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 "" C++
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-Plug 'justmao945/vim-clang', { 'for': ['c', 'cpp'] }
+Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
+Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
 "" Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 "" Jinja
@@ -245,3 +246,12 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
+
+" deoplete-clang
+if has('mac')
+  let g:deoplete#sources#clang#libclang_path  = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+  let g:deoplete#sources#clang#clang_header   = "/usr/local/opt/llvm/include"
+else
+  let g:deoplete#sources#clang#libclang_path  = ""
+  let g:deoplete#sources#clang#clang_header   = ""
+endif
