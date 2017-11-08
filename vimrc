@@ -252,7 +252,7 @@ let g:ale_cpp_clangcheck_options = "-extra-arg -std=c++11"
 " deoplete-clang
 if has('mac')
   let g:deoplete#sources#clang#libclang_path  = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
-  let g:deoplete#sources#clang#clang_header   = "/usr/local/opt/llvm/include"
+  let g:deoplete#sources#clang#clang_header   = "/usr/local/opt/llvm/lib/clang/5.0.0/include"
 else
   let g:deoplete#sources#clang#libclang_path  = "/usr/lib/llvm-3.8/lib/libclang.so"
   let g:deoplete#sources#clang#clang_header   = "/usr/include/clang"
