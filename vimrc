@@ -43,6 +43,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
 Plug 'vim-jp/cpp-vim', { 'for': 'cpp' }
+Plug 'Shougo/neoinclude.vim', { 'for': 'cpp' }
 "" Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 "" Jinja
