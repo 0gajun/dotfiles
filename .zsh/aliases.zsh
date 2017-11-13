@@ -33,6 +33,7 @@ alias gd='git diff'
 alias ga='git add'
 alias gs='git status'
 alias gc='git commit'
+alias gpo='git push origin'
 
 alias tf='terraform'
 alias tp='terraform plan'
