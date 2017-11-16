@@ -47,8 +47,12 @@ function git-changed-files() {
 }
 alias -g GF='$(git-changed-files)'
 
+function single-fzf-choice() {
+  fzf --height=20 --no-sort +m --query "$1" --prompt="$2 > "
+}
+
 function ssh-host-search-and-connect() {
-  ssh_host=$(cat ~/.ssh/config | grep "^Host" | awk '{print $2;}' | peco)
+  ssh_host=$(cat ~/.ssh/config | grep "^Host" | awk '{print $2;}' | single-fzf-choice "$1" "Host")
   echo "======================="
   echo "Connecting to $ssh_host"
   echo "=======================\n"
@@ -57,7 +61,7 @@ function ssh-host-search-and-connect() {
 alias sshs=ssh-host-search-and-connect
 
 function ghq-interactive-directory-select-and-cd() {
-  target=$(ghq list | fzf --height=20 --no-sort +m --query "$1" --prompt="Repository > ")
+  target=$(ghq list | single-fzf-choice "$1" "Repository > ")
   if [ -z $target ]; then
     return 0
   fi
