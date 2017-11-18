@@ -61,7 +61,7 @@ function ssh-host-search-and-connect() {
 alias sshs=ssh-host-search-and-connect
 
 function ghq-interactive-directory-select-and-cd() {
-  target=$(ghq list | single-fzf-choice "$1" "Repository > ")
+  target=$(ghq list | single-fzf-choice "$1" "Repository")
   if [ -z $target ]; then
     return 0
   fi
