@@ -33,6 +33,7 @@ Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
+Plug 'chr4/nginx.vim'
 
 " Language specific plugins
 "" Python
