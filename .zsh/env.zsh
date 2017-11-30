@@ -9,3 +9,10 @@ fi
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=50000
+
+# For go
+export GOPATH=$HOME/dev
+export PATH=$PATH:$GOROOT:$GOPATH/bin
+
+# For ghq
+export GHQ_ROOT=$GOPATH/src
