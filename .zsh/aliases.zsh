@@ -98,3 +98,4 @@ function create-new-repository() {
 }
 
 alias create-repo='create-new-repository'
+alias cnr='create-new-repository'
