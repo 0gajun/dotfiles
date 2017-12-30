@@ -49,8 +49,6 @@ Plug 'Shougo/neoinclude.vim', { 'for': 'cpp' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 "" Jinja
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
-"" Haskell
-Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
 "" Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go', 'tag': '*' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
@@ -62,6 +60,7 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "" Haskell
+Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell'}
 Plug 'dag/vim2hs', { 'for': 'haskell'}
 "" Toml
