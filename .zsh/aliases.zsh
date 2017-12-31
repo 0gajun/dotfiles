@@ -99,3 +99,17 @@ function create-new-repository() {
 
 alias create-repo='create-new-repository'
 alias cnr='create-new-repository'
+
+function dash() {
+  if [ ! is_osx ]; then
+    echo "This command is only supported in OSX"
+    return 1
+  fi
+
+  if [ -z $1 ] || [ -z $2 ]; then
+    echo "USAGE: dash LANG QUERY"
+    return 1
+  fi
+
+  open dash://$1:$2
+}
