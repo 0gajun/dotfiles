@@ -9,6 +9,7 @@ zplug 'zsh-users/zsh-completions'
 
 zplug "rupa/z", use:z.sh
 zplug "changyuheng/fz"
+zplug "mollifier/cd-gitroot"
 
 ## Theme
 zplug 'oskarkrawczyk/honukai-iterm-zsh', as:theme
