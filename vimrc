@@ -156,7 +156,11 @@ call denite#custom#var('file_rec/git', 'command',
   \ ['git', 'ls-files', '-co', '--exclude-standard'])
 
 function! DispatchUniteFileRecAsyncOrGit()
-  if isdirectory(getcwd()."/.git")
+  if !exists('g:is_working_dir_under_git')
+    let g:is_working_dir_under_git = isdirectory(substitute(system("git rev-parse --git-dir"), '\n', '', ''))
+  endif
+
+  if g:is_working_dir_under_git
     :Denite file_rec/git
   else
     :Denite file_rec
