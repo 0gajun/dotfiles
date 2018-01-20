@@ -62,6 +62,7 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "" Haskell
 Plug 'kana/vim-filetype-haskell', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell'}
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell'}
 Plug 'dag/vim2hs', { 'for': 'haskell'}
 "" Toml
 Plug 'cespare/vim-toml', { 'for': 'toml' }
