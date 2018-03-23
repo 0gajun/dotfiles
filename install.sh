@@ -33,7 +33,7 @@ if [ "$(which xmonad)" ] ; then
   if [ ! -e ~/.xmonad ] ; then
     mkdir ~/.xmonad
   fi
-  ln -sf "$DOTFILES_DIR/xmonad/*" ~/.xmonad/
+  ln -sf $DOTFILES_DIR/xmonad/* ~/.xmonad/
 fi
 
 #############################
@@ -79,7 +79,7 @@ do
     if [ ! -e $TMP_DIR/vim-colors-solarized/ ]; then
       git clone https://github.com/altercation/vim-colors-solarized.git $TMP_DIR/vim-colors-solarized/
     fi
-    cp -r "$TMP_DIR/vim-colors-solarized/*" "$root"
+    cp -r $TMP_DIR/vim-colors-solarized/* "$root"
   else
     echo "Solarized is already installed"
   fi
