@@ -16,3 +16,8 @@ export PATH=$PATH:$GOROOT:$GOPATH/bin
 
 # For ghq
 export GHQ_ROOT=$GOPATH/src
+
+# For brew-file
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
