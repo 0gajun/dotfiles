@@ -221,6 +221,15 @@ if [ ! -e "$HOME/.gitconfig" ]; then
   cp -n "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 fi
 
+
+#############################
+## Link Brewfile
+if [ $platform = 'OSX' ] ; then
+  mkdir -p ~/.config/brewfile
+  ln -sf "$DOTFILES_DIR/homebrew/Brewfile" ~/.config/brewfile/Brewfile
+fi
+
+
 echo 'remove working directory'
 rm -rf $TMP_DIR
 

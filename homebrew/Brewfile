@@ -1,0 +1,78 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew binutils
+brew coreutils
+brew ctags
+brew curl
+brew findutils
+brew fzf
+brew gcc
+brew gettext
+brew ghq
+brew git
+brew gmp
+brew go
+brew haskell-stack
+brew hr
+brew htop
+brew hub
+brew isl
+brew jemalloc
+brew jq
+brew libevent
+brew libidn2
+brew libmpc
+brew libtermkey
+brew libunistring
+brew libuv
+brew libvterm
+brew luajit
+brew mas
+brew mpfr
+brew msgpack
+brew neovim
+brew oniguruma
+brew openssl
+brew peco
+brew pwgen
+brew readline
+brew tig
+brew tmux
+brew tmux-cssh
+brew tree
+brew unibilium
+brew wget
+brew xz
+brew zsh
+
+tap homebrew/bundle
+
+tap caskroom/cask
+cask 1password
+cask alfred
+cask caffeine
+cask coteditor
+cask dropbox
+cask flux
+cask google-japanese-ime
+cask istat-menus
+cask iterm2
+cask karabiner-elements
+cask slack
+
+tap rcmdnk/file
+brew brew-file
+
+tap vitorgalvao/tiny-scripts
+brew cask-repair
+
+# App Store applications
+appstore 682658836 GarageBand (10.2.0)
+appstore 408981434 iMovie (10.1.8)
+appstore 409183694 Keynote (7.3.1)
+appstore 539883307 LINE (5.6.1)
+appstore 409203825 Numbers (4.3.1)
+appstore 409201541 Pages (6.3.1)
+appstore 445189367 PopClip (1.5.8)
