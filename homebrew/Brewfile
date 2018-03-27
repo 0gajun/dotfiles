@@ -6,6 +6,7 @@ brew binutils
 brew coreutils
 brew ctags
 brew curl
+brew direnv
 brew findutils
 brew fzf
 brew gcc
@@ -52,9 +53,12 @@ tap homebrew/bundle
 tap caskroom/cask
 cask 1password
 cask alfred
+cask atom
 cask caffeine
 cask coteditor
+cask dash
 cask dropbox
+cask firefox
 cask flux
 cask google-japanese-ime
 cask istat-menus
