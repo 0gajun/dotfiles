@@ -1,6 +1,7 @@
 # zplug plugins
 
-zplug "~/.zsh", from:local, use:"*.zsh", ignore:"zplug.zsh"
+zplug "~/.zsh", from:local, use:"*.zsh", ignore:"*{zplug,completion}.zsh"
+zplug "~/.zsh", from:local, use:"completion.zsh", defer:2
 
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-autosuggestions'
