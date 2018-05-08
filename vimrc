@@ -40,6 +40,8 @@ Plug 'chr4/nginx.vim'
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+"" Ruby
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 "" C++
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 Plug 'zchee/deoplete-clang', { 'for': ['c', 'cpp'] }
