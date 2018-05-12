@@ -107,28 +107,21 @@ if [ ! -e ~/.zplug ]; then
   git clone https://github.com/zplug/zplug "$HOME/.zplug"
 fi
 
-ln -sf "$DOTFILES_DIR/zshrc" ~/.zshrc
+if [ ! -e ~/.zshrc ]; then
+  ln -s "$DOTFILES_DIR/zshrc" ~/.zshrc
+fi
+if [ ! -e ~/.zshenv ]; then
+  ln -s "$DOTFILES_DIR/.zshenv" ~/.zshenv
+fi
 if [ ! -e ~/.zsh ]; then
-  ln -sf "$DOTFILES_DIR/.zsh" ~/.zsh
+  ln -s "$DOTFILES_DIR/.zsh" ~/.zsh
 fi
 
 #############################
-## PATH problem workaround for OSX El Capitan.
-if [ ! -e ~/.zshenv ] ; then
-  touch ~/.zshenv
+## Create machine specific zsh setting file
+if [ ! -e ~/.zshenv.local ] ; then
+  touch ~/.zshenv.local
 fi
-
-if [ $platform = 'OSX' ] ; then
-  # Checking whether zshenv is patched or not
-  matched_line=$( grep -c no_global_rcs ~/.zshenv ) || true
-  if [ "$matched_line" -eq 0 ] ; then
-    echo "Patching zsh workaround for OSX El Capitan"
-    TMP_ZSHENV=$TMP_DIR/zshenv
-    cat ./osx/workaround_loading_path_in_el_capitan ~/.zshenv > $TMP_ZSHENV
-    mv $TMP_ZSHENV ~/.zshenv
-  fi
-fi
-
 
 #############################
 ## anyenv

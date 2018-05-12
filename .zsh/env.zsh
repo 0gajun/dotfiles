@@ -5,15 +5,6 @@ else
   ZSH_THEME="agnoster"
 fi
 
-# History Settings
-HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=50000
-
-# For go
-export GOPATH=$HOME/dev
-export PATH=$PATH:$GOROOT:$GOPATH/bin
-
 # For ghq
 export GHQ_ROOT=$GOPATH/src
 
@@ -30,9 +21,14 @@ if type "opam" > /dev/null ; then
   eval `opam config env`
 fi
 
-if type "pyenv" > /dev/null ; then
-  eval "$(pyenv virtualenv-init -)"
+if [ -f $HOME/.anyenv/bin/anyenv ] ; then
+  path+=$HOME/.anyenv/bin
+  eval "$(anyenv init -)"
 fi
 
+if type "pyenv" > /dev/null ; then
+  # pyenv-virtualenv
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
