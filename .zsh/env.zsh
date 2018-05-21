@@ -31,4 +31,7 @@ if type "pyenv" > /dev/null ; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f ~/.fzf.zsh ]; then
+  echo "loading fzf"
+  source ~/.fzf.zsh
+fi
