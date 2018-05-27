@@ -23,7 +23,9 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
 # For rust
-path+="$HOME/.cargo/bin(N-/)"
+path+=( \
+  $HOME/.cargo/bin(N-/) \
+  )
 
 # History
 HISTFILE=~/.zsh_history
