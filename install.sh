@@ -111,7 +111,7 @@ if [ ! -e ~/.zshrc ]; then
   ln -s "$DOTFILES_DIR/zshrc" ~/.zshrc
 fi
 if [ ! -e ~/.zshenv ]; then
-  ln -s "$DOTFILES_DIR/.zshenv" ~/.zshenv
+  ln -s "$DOTFILES_DIR/zshenv" ~/.zshenv
 fi
 if [ ! -e ~/.zsh ]; then
   ln -s "$DOTFILES_DIR/.zsh" ~/.zsh
