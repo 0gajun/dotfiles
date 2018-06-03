@@ -156,7 +156,7 @@ endfunction
 
 call denite#custom#alias('source', 'file_rec/git', 'file_rec')
 call denite#custom#var('file_rec/git', 'command',
-  \ ['git', 'ls-files', '-co', '--exclude-standard'])
+  \ ['git', 'ls-files', '-co', '--exclude-standard', '-x', 'vendor'])
 
 function! DispatchUniteFileRecAsyncOrGit()
   if !exists('g:is_working_dir_under_git')
