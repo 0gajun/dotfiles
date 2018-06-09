@@ -6,9 +6,9 @@ if [[ "$(uname)" == 'Darwin' ]]; then
   path=( \
     /bin \
     /sbin \
+    /usr/local/bin(N-/) \
     /usr/sbin \
     /usr/bin \
-    /usr/local/bin(N-/) \
     )
 fi
 
