@@ -32,6 +32,5 @@ if type "pyenv" > /dev/null ; then
 fi
 
 if [ -f ~/.fzf.zsh ]; then
-  echo "loading fzf"
   source ~/.fzf.zsh
 fi
