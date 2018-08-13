@@ -3,25 +3,34 @@
 
 tap homebrew/core
 brew binutils
+brew cabal-install
 brew coreutils
 brew ctags
 brew curl
+brew dep
 brew direnv
 brew findutils
 brew fzf
 brew gcc
+brew gdbm
 brew gettext
+brew ghc
 brew ghq
+brew gibo
 brew git
 brew gmp
 brew go
 brew haskell-stack
+brew heroku
 brew hr
 brew htop
 brew hub
+brew icu4c
 brew isl
 brew jemalloc
 brew jq
+brew kubectx
+brew kubernetes-cli
 brew libevent
 brew libidn2
 brew libmpc
@@ -31,19 +40,29 @@ brew libuv
 brew libvterm
 brew luajit
 brew mas
+brew mongodb
 brew mpfr
 brew msgpack
+brew mysql
 brew neovim
+brew node
 brew oniguruma
 brew openssl
 brew peco
+brew protobuf
 brew pwgen
+brew python@2
 brew readline
+brew reattach-to-user-namespace
+brew redis
+brew skaffold
+brew sqlite
 brew tig
 brew tmux
 brew tmux-cssh
 brew tree
 brew unibilium
+brew watch
 brew wget
 brew xz
 brew zsh
@@ -51,26 +70,39 @@ brew zsh
 tap homebrew/bundle
 
 tap caskroom/cask
-cask 1password
-cask alfred
-cask atom
-cask caffeine
-cask coteditor
-cask dash
-cask dropbox
-cask firefox
-cask flux
-cask google-japanese-ime
-cask istat-menus
-cask iterm2
-cask karabiner-elements
-cask slack
 
 tap rcmdnk/file
 brew brew-file
 
 tap vitorgalvao/tiny-scripts
 brew cask-repair
+
+# Other Homebrew packages
+brew rustup
+
+# Other Cask applications
+cask 1password
+cask alfred
+cask atom
+cask boostnote
+cask caffeine
+cask coteditor
+cask dash
+cask docker-edge
+cask dropbox
+cask firefox
+cask flux
+cask google-cloud-sdk
+cask google-japanese-ime
+cask intellij-idea
+cask istat-menus
+cask iterm2
+cask karabiner-elements
+cask kindle
+cask mendeley
+cask quik
+cask skype
+cask slack
 
 # App Store applications
 appstore 682658836 GarageBand (10.2.0)
