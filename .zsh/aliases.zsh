@@ -38,6 +38,8 @@ alias gpo='git push origin'
 alias tf='terraform'
 alias tp='terraform plan'
 
+alias k='kubectl'
+
 ####################
 # Functions
 
