@@ -1,8 +1,8 @@
 #!/bin/sh
 TMP_DIR=~/tmp-dotfiles
 DOTFILES_DIR=$(cd "$(dirname "$0")";pwd)
-PYTHON2_VERSION=2.7.13
-PYTHON3_VERSION=3.5.2
+PYTHON2_VERSION=2.7.14
+PYTHON3_VERSION=3.6.4
 
 # when error occurs, stop task
 set -e
