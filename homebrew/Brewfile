@@ -2,8 +2,11 @@
 # tap repositories and their packages
 
 tap homebrew/core
+brew ansible
 brew binutils
 brew cabal-install
+brew cfssl
+brew circleci
 brew coreutils
 brew ctags
 brew curl
@@ -21,7 +24,6 @@ brew git
 brew gmp
 brew go
 brew haskell-stack
-brew heroku
 brew hr
 brew htop
 brew hub
@@ -29,15 +31,19 @@ brew icu4c
 brew isl
 brew jemalloc
 brew jq
+brew jsonnet
 brew kubectx
 brew kubernetes-cli
+brew kustomize
 brew libevent
 brew libidn2
 brew libmpc
 brew libtermkey
+brew libtool
 brew libunistring
 brew libuv
 brew libvterm
+brew libyaml
 brew luajit
 brew mas
 brew mongodb
@@ -45,10 +51,12 @@ brew mpfr
 brew msgpack
 brew mysql
 brew neovim
+brew nmap
 brew node
 brew oniguruma
 brew openssl
 brew peco
+brew postgresql
 brew protobuf
 brew pwgen
 brew python@2
@@ -56,7 +64,9 @@ brew readline
 brew reattach-to-user-namespace
 brew redis
 brew skaffold
+brew socat
 brew sqlite
+brew telnet
 brew tig
 brew tmux
 brew tmux-cssh
@@ -71,6 +81,9 @@ tap homebrew/bundle
 
 tap caskroom/cask
 
+tap kryptco/tap
+brew kr
+
 tap rcmdnk/file
 brew brew-file
 
@@ -78,6 +91,7 @@ tap vitorgalvao/tiny-scripts
 brew cask-repair
 
 # Other Homebrew packages
+brew heroku
 brew rustup
 
 # Other Cask applications
