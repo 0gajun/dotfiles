@@ -68,6 +68,8 @@ Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell'}
 Plug 'dag/vim2hs', { 'for': 'haskell'}
 "" Toml
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+"" Jsonnet
+Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
 
 call plug#end()
 
