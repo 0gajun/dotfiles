@@ -156,9 +156,9 @@ function! FugitiveHeadBranch()
   return ''
 endfunction
 
-call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-call denite#custom#var('file_rec/git', 'command',
-  \ ['git', 'ls-files', '-co', '--exclude-standard', '-x', 'vendor'])
+call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+call denite#custom#var('file/rec/git', 'command',
+	\ ['git', 'ls-files', '-co', '--exclude-standard', '-x', 'vendor'])
 
 function! DispatchUniteFileRecAsyncOrGit()
   if !exists('g:is_working_dir_under_git')
@@ -166,9 +166,9 @@ function! DispatchUniteFileRecAsyncOrGit()
   endif
 
   if g:is_working_dir_under_git
-    :Denite file_rec/git
+    :Denite file/rec/git
   else
-    :Denite file_rec
+    :Denite file/rec
   endif
 endfunction
 " denite.nvim
