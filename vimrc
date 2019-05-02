@@ -53,7 +53,7 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'jinja' }
 "" Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go', 'tag': '*' }
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make', 'for': 'go' }
 "" cofee-script
 Plug 'kchmck/vim-coffee-script', { 'for': 'cofee' }
 "" Terraform
