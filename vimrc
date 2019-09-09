@@ -34,6 +34,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'chr4/nginx.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Language specific plugins
 "" Python
@@ -209,7 +210,6 @@ let g:deoplete#enable_smart_case = 1
 if !exists('g:deoplete#keyword_patterns')
   let g:deoplete#keyword_patterns = {}
 endif
-let g:deoplete#keyword_patterns._ = '\h\w*' " Ignore Japanese
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " jedi-vim
@@ -225,6 +225,11 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
+let g:go_jump_to_error=0
+let g:go_def_mapping_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
+
+nmap <silent> gd <Plug>(coc-definition)
 
 if executable("opam")
   " merlin (For OCaml
@@ -257,7 +262,7 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
 "" Enabling to use c++11
-let g:ale_linters = {'cpp': ['clangcheck']}
+let g:ale_linters = {'cpp': ['clangcheck'], 'go': ['gopls']}
 
 " deoplete-clang
 if has('mac')
